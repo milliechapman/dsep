@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DSEP: Data Science for Environmental Policy</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <style>body{font-family:'Inter',Arial,sans-serif;background:#f4f6fa;margin:0;padding:0;color:#222b45;}.navbar{background:#23395d;padding:0 2rem;display:flex;align-items:center;height:60px;box-shadow:0 2px 8px rgba(0,0,0,0.04);}.navbar .logo{color:#fff;font-size:1.3rem;font-weight:600;letter-spacing:1px;margin-right:2rem;text-decoration:none;}.navbar ul{list-style:none;display:flex;margin:0;padding:0;}.navbar li{margin:0 1rem;}.navbar a{color:#e0e6f7;text-decoration:none;font-weight:500;font-size:1rem;transition:color 0.2s;}.navbar a:hover,.navbar a.active{color:#ffb347;}.main-content{max-width:900px;margin:2.5rem auto 0 auto;background:#fff;border-radius:14px;box-shadow:0 4px 24px rgba(0,0,0,0.07);padding:2.5rem 2rem 2rem 2rem;}h1{font-size:2.2rem;font-weight:600;margin-bottom:0.5em;color:#23395d;}.subtitle{color:#4a5a7a;font-size:1.1rem;margin-bottom:2.5rem;}ul{color:#23395d;}@media (max-width:700px){.main-content{padding:1.2rem 0.5rem;}}</style>
+    <style>body{font-family:'Inter',Arial,sans-serif;background:#f4f6fa;margin:0;padding:0;color:#222b45;}.navbar{background:#23395d;padding:0 2rem;display:flex;align-items:center;height:60px;box-shadow:0 2px 8px rgba(0,0,0,0.04);}.navbar .logo{color:#fff;font-size:1.3rem;font-weight:600;letter-spacing:1px;margin-right:2rem;text-decoration:none;}.navbar ul{list-style:none;display:flex;margin:0;padding:0;}.navbar li{margin:0 1rem;}.navbar a{color:#e0e6f7;text-decoration:none;font-weight:500;font-size:1rem;transition:color 0.2s;}.navbar a:hover,.navbar a.active{color:#ffb347;}.main-content{max-width:900px;margin:2.5rem auto 0 auto;background:#fff;border-radius:14px;box-shadow:0 4px 24px rgba(0,0,0,0.07);padding:2.5rem 2rem 2rem 2rem;}h1{font-size:2.2rem;font-weight:600;margin-bottom:0.5em;color:#23395d;}.subtitle{color:#4a5a7a;font-size:1.1rem;margin-bottom:2.5rem;}details{border:1px solid #dde3f0;border-left:4px solid #23395d;border-radius:8px;padding:.9rem 1.1rem;margin-bottom:.85rem;background:#f8fafd;}details[open]{background:#fff;}summary{color:#23395d;font-size:1.1rem;font-weight:600;cursor:pointer;}details[open] summary{margin-bottom:.75rem;}details p,details li{color:#3a4666;line-height:1.55;}details ul,details ol{padding-left:1.35rem;}code{background:#eef1f8;border:1px solid #dde3f0;border-radius:4px;padding:.1rem .3rem;color:#23395d;}a{color:#23395d;}@media (max-width:700px){.navbar{height:auto;padding:.75rem 1rem;align-items:flex-start;}.navbar ul{flex-wrap:wrap;gap:.5rem 0;}.navbar li{margin:0 .5rem;}.main-content{margin:1.25rem .75rem 0;padding:1.2rem;}}</style>
 </head>
 <body>
     <nav class="navbar">
@@ -21,31 +21,48 @@
     </nav>
     <div class="main-content">
         <h1>Tech Setup</h1>
-        <div class="subtitle">Follow these steps to get your computer ready for the course.</div>
-        <hr style="margin:2rem 0; border:none; border-top:1.5px solid #e0e6f7;">
-        <h2 style="color:#23395d; font-size:1.15rem;">1. Install Python (3.10 or newer)</h2>
-        <ul>
-            <li><b>Recommended:</b> <a href="https://www.anaconda.com/products/distribution" target="_blank">Anaconda</a> or <a href="https://docs.conda.io/en/latest/miniconda.html" target="_blank">Miniconda</a> (all platforms)</li>
-            <li>Follow the installer instructions for your operating system.</li>
-            <li>Open a terminal and check your Python version:<br><code>python --version</code> or <code>python3 --version</code></li>
-        </ul>
-        <h2 style="color:#23395d; font-size:1.15rem;">2. Set up Jupyter</h2>
-        <ul>
-            <li>Open a terminal and run:<br><code>conda install jupyterlab</code> <i>or</i> <code>pip install jupyterlab</code></li>
-            <li>Start JupyterLab with:<br><code>jupyter lab</code></li>
-        </ul>
-        <h2 style="color:#23395d; font-size:1.15rem;">3. Install VS Code</h2>
-        <ul>
-            <li>Download and install <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a>.</li>
-            <li>Open VS Code and install the <b>Python</b> extension (search for "Python" in the Extensions tab).</li>
-        </ul>
-        <h2 style="color:#23395d; font-size:1.15rem;">4. Set up Git & GitHub</h2>
-        <ul>
-            <li>Download and install <a href="https://git-scm.com/downloads" target="_blank">Git</a>.</li>
-            <li>Create a free <a href="https://github.com/" target="_blank">GitHub</a> account if you don't have one.</li>
-            <li>Configure Git with your name and email:<br><code>git config --global user.name "Your Name"</code><br><code>git config --global user.email "you@example.com"</code></li>
-        </ul>
-        <hr style="margin:2rem 0; border:none; border-top:1.5px solid #e0e6f7;">
+        <div class="subtitle">Follow these steps to get your computer, or browser, ready for the course. Select a section to expand it.</div>
+        <details>
+            <summary>1. GitHub</summary>
+            <p><b>Why it matters:</b> GitHub is where coursework lives this term: module assignments, your final project, and, if you build one, your personal portfolio site. It is also a standard professional workflow in data science and policy analysis.</p>
+            <p><b>How to set it up:</b></p>
+            <ol>
+                <li>Create a free account at <a href="https://github.com/" target="_blank" rel="noopener noreferrer">github.com</a> if you do not already have one.</li>
+                <li>Install <a href="https://git-scm.com/downloads" target="_blank" rel="noopener noreferrer">Git</a> on your machine.</li>
+                <li>Configure Git with your name and email:<br><code>git config --global user.name "Your Name"</code><br><code>git config --global user.email "you@example.com"</code></li>
+                <li>Accept your invite to the course organization on GitHub, where module templates and your project repository will live.</li>
+            </ol>
+        </details>
+        <details>
+            <summary>2. R / Python</summary>
+            <p><b>Why it matters:</b> These are the languages used for analysis: cleaning data, mapping it, modeling it, and evaluating policy. R is the primary course language, with strong ecosystems for spatial data, causal inference, and reproducible reports through Quarto. Python alternatives are welcome for your own exploration.</p>
+            <p><b>How to set it up:</b></p>
+            <ul>
+                <li><b>R:</b> install <a href="https://cran.r-project.org/" target="_blank" rel="noopener noreferrer">R</a> and <a href="https://posit.co/download/rstudio-desktop/" target="_blank" rel="noopener noreferrer">RStudio</a>, or use VS Code with the R extension.</li>
+                <li><b>Python:</b> install through <a href="https://www.anaconda.com/products/distribution" target="_blank" rel="noopener noreferrer">Anaconda</a> or <a href="https://docs.conda.io/en/latest/miniconda.html" target="_blank" rel="noopener noreferrer">Miniconda</a>.</li>
+                <li>GitHub Codespaces provides a working environment in the browser, so you may not need a local installation.</li>
+            </ul>
+        </details>
+        <details>
+            <summary>3. VS Code and/or GitHub Codespaces</summary>
+            <p><b>Why it matters:</b> Some course tools, particularly spatial-data libraries, depend on system software that can be difficult to install. GitHub Codespaces provides a shared browser-based environment with the required tools already installed.</p>
+            <p><b>How to set it up:</b></p>
+            <ul>
+                <li><b>Local VS Code:</b> download <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">Visual Studio Code</a>, then install the R or Python extension from the Extensions tab.</li>
+                <li><b>GitHub Codespaces:</b> open a course repository on GitHub, select <b>Code</b>, then <b>Codespaces</b>, then <b>Create codespace on main</b>.</li>
+                <li>Free GitHub accounts include 120 core-hours per month; verified students receive more through the GitHub Student Developer Pack.</li>
+            </ul>
+        </details>
+        <details>
+            <summary>4. An LLM assistant for VS Code</summary>
+            <p><b>Why it matters:</b> AI coding assistants can help debug and explain unfamiliar code, and speed up routine work such as data cleaning. Use them critically: the question, the evidence, and the limits of what the data can support remain yours to reason through.</p>
+            <p><b>How to set it up:</b></p>
+            <ul>
+                <li><b>GitHub Copilot:</b> install the GitHub Copilot extension in VS Code and sign in with your GitHub account. It is free for verified students through the GitHub Student Developer Pack.</li>
+                <li><b>Claude:</b> install the Claude Code extension, or the Claude integration for VS Code, and sign in with an Anthropic account.</li>
+                <li>Either option works well for the course. Use the assistant you are already comfortable with, or try both.</li>
+            </ul>
+        </details>
         <p>If you have any trouble with setup, please reach out to the instructors for help.</p>
     </div>
     <footer style="margin-top:2.5rem;background:#23395d;color:#e0e6f7;padding:1rem 2rem;text-align:center;font-size:0.95rem;">
