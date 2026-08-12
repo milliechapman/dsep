@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DuckDB Geo MCP — Setup Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', Arial, sans-serif; background: #f4f6fa; margin: 0; padding: 0; color: #222b45; }
+        .navbar { background: #23395d; padding: 0 2rem; display: flex; align-items: center; height: 60px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+        .navbar .logo { color: #fff; font-size: 1.3rem; font-weight: 600; letter-spacing: 1px; margin-right: 2rem; text-decoration: none; }
+        .navbar ul { list-style: none; display: flex; margin: 0; padding: 0; }
+        .navbar li { margin: 0 1rem; }
+        .navbar a { color: #e0e6f7; text-decoration: none; font-weight: 500; font-size: 1rem; transition: color 0.2s; }
+        .navbar a:hover, .navbar a.active { color: #ffb347; }
+        .main-content { max-width: 900px; margin: 2.5rem auto 0 auto; background: #fff; border-radius: 14px; box-shadow: 0 4px 24px rgba(0,0,0,0.07); padding: 2.5rem 2rem 2rem 2rem; }
+        h1 { font-size: 2.2rem; font-weight: 600; margin-bottom: 0.5em; color: #23395d; }
+        .subtitle { color: #4a5a7a; font-size: 1.1rem; margin-bottom: 2.5rem; }
+        @media (max-width: 700px) { .main-content { padding: 1.2rem 0.5rem; } }
+
+        /* Steps */
+        .steps { display: flex; flex-direction: column; gap: 2rem; margin-top: 1.5rem; }
+        .step { display: grid; grid-template-columns: 52px 1fr; gap: 0 1.25rem; align-items: start; }
+        .step-num {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+            color: #23395d; border: 2px solid #23395d;
+            width: 40px; height: 40px;
+            display: flex; align-items: center; justify-content: center;
+            margin-top: 2px; flex-shrink: 0; border-radius: 4px;
+        }
+        .step-body h2 { font-size: 1.1rem; font-weight: 600; color: #23395d; margin-bottom: 0.4rem; }
+        .step-body p { color: #4a5a7a; margin-bottom: 0.75rem; font-size: 0.975rem; }
+
+        /* Code blocks */
+        .code-block {
+            background: #f0f3f9;
+            border: 1px solid #dde3f0;
+            border-left: 3px solid #23395d;
+            border-radius: 6px;
+            padding: 16px 20px;
+            margin-bottom: 10px;
+            overflow-x: auto;
+        }
+        .code-block pre {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px; line-height: 1.7;
+            color: #222b45; white-space: pre; margin: 0;
+        }
+        .token-key   { color: #1a6bbf; }
+        .token-str   { color: #b5590e; }
+        .token-punct { color: #7a869a; }
+        .token-comment { color: #8898aa; font-style: italic; }
+
+        /* Inline code */
+        code {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85em;
+            background: #eef1f8;
+            border: 1px solid #dde3f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #23395d;
+        }
+
+        /* Keyboard shortcuts */
+        kbd {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            background: #e8ecf5;
+            border: 1px solid #c5cedf;
+            border-bottom: 2px solid #b0bcd4;
+            padding: 2px 8px;
+            border-radius: 3px;
+            color: #23395d;
+            white-space: nowrap;
+        }
+
+        /* Tip box */
+        .tip {
+            background: #eaf7f2;
+            border: 1px solid #a8dfc8;
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #2d6e54;
+        }
+        .tip::before { content: '→ '; font-weight: 600; }
+
+        /* Verify box */
+        .verify {
+            margin-top: 2.5rem;
+            background: #f8fafd;
+            border: 1px solid #dde3f0;
+            border-top: 3px solid #23395d;
+            border-radius: 8px;
+            padding: 1.75rem;
+        }
+        .verify h2 { font-size: 1.1rem; font-weight: 600; color: #23395d; margin-bottom: 1rem; }
+        .checks { display: flex; flex-direction: column; gap: 12px; }
+        .check { display: flex; gap: 12px; align-items: flex-start; font-size: 0.95rem; color: #4a5a7a; }
+        .check-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px; color: #23395d;
+            background: #e8ecf5; border: 1px solid #c5cedf;
+            padding: 2px 8px; white-space: nowrap;
+            margin-top: 2px; flex-shrink: 0; border-radius: 3px;
+        }
+
+        /* Starter queries */
+        .queries { margin-top: 2.5rem; }
+        .queries h2 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px; letter-spacing: 0.15em;
+            text-transform: uppercase; color: #7a869a; margin-bottom: 1rem;
+        }
+        .query-list { display: flex; flex-direction: column; gap: 8px; }
+        .query-item {
+            background: #f0f3f9; border: 1px solid #dde3f0;
+            padding: 12px 16px; font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px; color: #222b45; border-radius: 6px;
+            transition: border-color 0.15s;
+        }
+        .query-item:hover { border-color: #23395d; }
+        .query-item::before { content: '> '; color: #23395d; font-weight: 600; }
+
+        @media (max-width: 500px) {
+            .step { grid-template-columns: 1fr; }
+            .step-num { margin-bottom: 8px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a class="logo" href="index.html" aria-label="Home"></a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="syllabus.html">Syllabus</a></li>
+            <li><a href="readings.html">Readings</a></li>
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="tech.html">Tech Setup</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="main-content">
+        <h1>Query geo data from VS Code</h1>
+        <p class="subtitle">Connect the DuckDB Geo MCP server to GitHub Copilot and explore spatial datasets with plain English.</p>
+        <hr style="margin: 0 0 2rem 0; border: none; border-top: 1.5px solid #e0e6f7;">
+
+        <div class="steps">
+
+            <!-- Step 1 -->
+            <div class="step">
+                <div class="step-num">01</div>
+                <div class="step-body">
+                    <h2>Open the MCP configuration</h2>
+                    <p>Open the Command Palette, type the command below, and press Enter. VS Code will create and open the config file automatically.</p>
+                    <div class="code-block">
+                        <pre><kbd>⌘ Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>  <span class="token-comment">// Mac</span>
+<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>  <span class="token-comment">// Windows / Linux</span>
+
+MCP: Open Workspace Configuration</pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step">
+                <div class="step-num">02</div>
+                <div class="step-body">
+                    <h2>Paste the server config</h2>
+                    <p>Replace any existing content in the file with the following, then save.</p>
+                    <div class="code-block">
+<pre><span class="token-punct">{</span>
+  <span class="token-key">"servers"</span><span class="token-punct">:</span> <span class="token-punct">{</span>
+    <span class="token-key">"duckdb-geo"</span><span class="token-punct">:</span> <span class="token-punct">{</span>
+      <span class="token-key">"url"</span><span class="token-punct">:</span> <span class="token-str">"https://duckdb-mcp.nrp-nautilus.io/mcp"</span>
+    <span class="token-punct">}</span>
+  <span class="token-punct">}</span>
+<span class="token-punct">}</span></pre>
+                    </div>
+                    <p>When prompted, click <strong>Start</strong> to connect to the server.</p>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step">
+                <div class="step-num">03</div>
+                <div class="step-body">
+                    <h2>Open Copilot Chat in Agent mode</h2>
+                    <p>MCP tools only work in Agent mode — not Ask or Edit.</p>
+                    <div class="code-block">
+                        <pre><kbd>⌘ Cmd</kbd> + <kbd>Ctrl</kbd> + <kbd>I</kbd>  <span class="token-comment">// Mac</span>
+<kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>I</kbd>   <span class="token-comment">// Windows / Linux</span></pre>
+                    </div>
+                    <div class="tip">Use the dropdown at the top of the chat panel to switch from <strong>Ask</strong> to <strong>Agent</strong>.</div>
+                </div>
+            </div>
+
+        </div><!-- /steps -->
+
+        <!-- Verify connection -->
+        <div class="verify">
+            <h2>Confirm you're connected</h2>
+            <div class="checks">
+                <div class="check">
+                    <span class="check-label">Option 1</span>
+                    <span>Run <strong>MCP: List Servers</strong> from the Command Palette — <code>duckdb-geo</code> should appear with a running status.</span>
+                </div>
+                <div class="check">
+                    <span class="check-label">Option 2</span>
+                    <span>Look for the 🔧 tools icon in the Copilot Chat input. Click it to see the tools the server registered.</span>
+                </div>
+                <div class="check">
+                    <span class="check-label">Option 3</span>
+                    <span>Just ask the agent: <em>"What tools do you have available?"</em> — it will list the MCP tools if connected.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Starter queries -->
+        <div class="queries">
+            <h2>Starter prompts to try</h2>
+            <div class="query-list">
+                <div class="query-item">What datasets are available on this server?</div>
+                <div class="query-item">Show me the schema of all available tables.</div>
+                <div class="query-item">How many wetland sites are in Southeast Asia?</div>
+                <div class="query-item">Which protected areas have the highest biodiversity scores?</div>
+                <div class="query-item">Run SHOW TABLES and describe each one.</div>
+            </div>
+        </div>
+
+    </div>
+    <footer style="margin-top: 2.5rem; background: #23395d; color: #e0e6f7; padding: 1rem 2rem; text-align: center; font-size: 0.95rem;">
+        CAS TPP: Big Data for Public Policy | ETH Zurich | May 8, 2026
+    </footer>
+</body>
+</html>

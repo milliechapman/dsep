@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAS TPP: Big Data for Public Policy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background: #f4f6fa;
+            margin: 0;
+            padding: 0;
+            color: #222b45;
+        }
+        .navbar {
+            background: #23395d;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            height: 60px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .navbar .logo {
+            color: #fff;
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-right: 2rem;
+            text-decoration: none;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar li {
+            margin: 0 1rem;
+        }
+        .navbar a {
+            color: #e0e6f7;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+        .navbar a:hover,
+        .navbar a.active {
+            color: #ffb347;
+        }
+        .main-content {
+            max-width: 900px;
+            margin: 2.5rem auto 0 auto;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+            padding: 2.5rem 2rem 2rem 2rem;
+        }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5em;
+            color: #23395d;
+        }
+        .subtitle {
+            color: #4a5a7a;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        .slot {
+            margin-bottom: 1.8rem;
+        }
+        .slot h2 {
+            margin: 0 0 0.55rem 0;
+            color: #23395d;
+            font-size: 1.16rem;
+        }
+        .slot p {
+            margin: 0.3rem 0;
+            color: #3a4666;
+            line-height: 1.55;
+        }
+        .slot ul {
+            margin: 0.45rem 0 0.3rem 1.2rem;
+            color: #23395d;
+            line-height: 1.55;
+        }
+        hr {
+            margin: 1.5rem 0;
+            border: none;
+            border-top: 1.5px solid #e0e6f7;
+        }
+        @media (max-width: 700px) {
+            .main-content {
+                padding: 1.2rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a class="logo" href="index.html" aria-label="Home"></a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="syllabus.html" class="active">Syllabus</a></li>
+            <li><a href="readings.html">Readings</a></li>
+            <li><a href="tech.html">Tech Setup</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <h1>Syllabus</h1>
+        <div class="subtitle">May 8, 2026 &bull; ETH Zurich</div>
+
+        <div class="slot">
+            <h2>09:15 - 09:30 | Introductions</h2>
+        </div>
+
+        <hr>
+
+        <div class="slot">
+            <h2>09:30 - 10:30 | Lecture 1: Big Data in Environmental Policy</h2>
+            <p><b>What problems do you work on? What data do you work with?</b></p>
+            <ul>
+                <li>Data infrastructures, data aggregation, data sovereignty</li>
+                <li>Where data exist: platforms, APIs, cloud catalogs</li>
+                <li>Introduction to <a href="https://stacspec.org/en/about/" target="_blank">STAC</a> — what it is and why these infrastructures matter</li>
+                <li>Data frictions: the gap between data availability and data access</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <div class="slot">
+            <h2>10:30 - 10:45 | Break</h2>
+        </div>
+
+        <hr>
+
+        <div class="slot">
+            <h2>10:45 - 11:45 | Activity 1: Finding Data in the STAC Catalog</h2>
+            <p><b>Get into groups — start with the paper you read</b></p>
+            <ul>
+                <li>Look for the data described or needed in your paper inside a STAC catalog</li>
+                <li>What infrastructures do these data live on? How big are they?</li>
+                <li>What does it mean to access them? What frictions do you encounter?</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <div class="slot">
+            <h2>11:45 - 12:00 | Share Back</h2>
+            <ul>
+                <li>What frictions did you find? What surprised you?</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <div class="slot">
+            <h2>12:00 - 13:30 | Lunch</h2>
+        </div>
+
+        <hr>
+
+        <div class="slot">
+            <h2>13:30 - 14:15 | Lecture 2: Cloud-Native Computing and MCPs</h2>
+            <ul>
+                <li>Working with data you cannot (or should not) download</li>
+                <li>Cloud-native workflows: COGs, STAC queries, on-demand computation</li>
+                <li>Introduction to Model Context Protocol (MCP) for data access — see <a href="duckdb-setup.html">MCP Servers page</a></li>
+                <li>Live demo: STAC query and NDVI computation</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <div class="slot">
+            <h2>14:15 - 14:45 | Explore: MCPs and Data Structures</h2>
+            <p><b>Open exploration — doesn't have to be your group's paper topic</b></p>
+            <ul>
+                <li>Connect to an MCP server and run a query</li>
+                <li>Explore what data structures and metadata are returned</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <div class="slot">
+            <h2>14:45 - 15:00 | Break</h2>
+        </div>
+
+        <hr>
+
+        <div class="slot">
+            <h2>15:00 - 15:30 | Projects and Deep Dives: Introduction</h2>
+            <ul>
+                <li>Groups choose a dataset and policy question to investigate</li>
+                <li>Framing: what would you actually need to answer this question?</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <div class="slot">
+            <h2>15:30 - 16:30 | Group Work: Deep Dives</h2>
+            <ul>
+                <li>Work through your chosen dataset and question</li>
+                <li>Document what you found, what was hard, and what remains uncertain</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <div class="slot">
+            <h2>16:30 - 16:45 | Report Back and Closing</h2>
+            <ul>
+                <li>Brief group reports</li>
+                <li>Closing reflection: What does it mean to do policy analysis in a world of planetary-scale, uneven, and infrastructure-dependent data?</li>
+            </ul>
+        </div>
+    </div>
+    <footer style="margin-top:2.5rem;background:#23395d;color:#e0e6f7;padding:1rem 2rem;text-align:center;font-size:0.95rem;">
+        CAS TPP: Big Data for Public Policy | ETH Zurich | May 8, 2026
+    </footer>
+</body>
+</html>

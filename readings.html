@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAS TPP: Big Data for Public Policy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background: #f4f6fa;
+            margin: 0;
+            padding: 0;
+            color: #222b45;
+        }
+        .navbar {
+            background: #23395d;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            height: 60px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .navbar .logo {
+            color: #fff;
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-right: 2rem;
+            text-decoration: none;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar li {
+            margin: 0 1rem;
+        }
+        .navbar a {
+            color: #e0e6f7;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+        .navbar a:hover,
+        .navbar a.active {
+            color: #ffb347;
+        }
+        .main-content {
+            max-width: 900px;
+            margin: 2.5rem auto 0 auto;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+            padding: 2.5rem 2rem 2rem 2rem;
+        }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5em;
+            color: #23395d;
+        }
+        .subtitle {
+            color: #4a5a7a;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        h2 {
+            color: #23395d;
+            font-size: 1.2rem;
+            margin: 1.6rem 0 0.6rem 0;
+        }
+        ul {
+            color: #23395d;
+            line-height: 1.55;
+            margin-top: 0.4rem;
+        }
+        p {
+            color: #3a4666;
+            line-height: 1.55;
+        }
+        .reading {
+            background: #f9fafc;
+            border-left: 3px solid #23395d;
+            margin: 1.2rem 0;
+            padding: 1rem 1.2rem;
+            border-radius: 6px;
+        }
+        .readings-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 1rem 0;
+        }
+        .readings-grid .reading {
+            margin: 0;
+        }
+        .reading h3 {
+            margin: 0 0 0.5rem 0 !important;
+        }
+        .reading-meta {
+            color: #3a4666;
+            font-size: 0.95rem;
+            margin-bottom: 0.7rem;
+            line-height: 1.5;
+        }
+        .reading-section {
+            margin: 0.6rem 0;
+        }
+        .reading-section p {
+            margin: 0.3rem 0;
+            padding-left: 0.8rem;
+            border-left: 2px solid #e0e6f7;
+        }
+        .note {
+            margin-top: 1.5rem;
+            padding: 1rem 1.1rem;
+            border-radius: 10px;
+            background: #f4f6fa;
+            color: #3a4666;
+        }
+        hr {
+            margin: 1.8rem 0;
+            border: none;
+            border-top: 1.5px solid #e0e6f7;
+        }
+        @media (max-width: 700px) {
+            .main-content {
+                padding: 1.2rem 0.5rem;
+            }
+            .readings-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a class="logo" href="index.html" aria-label="Home"></a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="syllabus.html">Syllabus</a></li>
+            <li><a href="readings.html" class="active">Readings</a></li>
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="tech.html">Tech Setup</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <h1>Course Preparation & Readings</h1>
+        <div class="subtitle">Please complete these short readings before class. They are designed to support both discussion and the hands-on group work. Don't forget to review the <a href="tech.html" style="color:#23395d; font-weight:600;">Tech Setup</a> requirements as well.</div>
+
+        <hr>
+
+        <h2>General (All Participants)</h2>
+
+        <div class="reading">
+            <h3 style="color:#23395d; font-size:1.05rem;"><b>(1) Unicorns, Show Ponies, and Gazelles</b> <a href="https://radiant.earth/blog/2024/01/unicorns-show-ponies-and-gazelles/" target="_blank" style="color:#ffb347; font-weight:600;">[link]</a></h3>
+            <div class="reading-section">
+                <p><b style="color:#23395d;">What it covers:</b> A typology of geospatial data systems—"unicorns" (large, centralized, well-funded platforms), "show ponies" (polished, user-facing tools and dashboards), and "gazelles" (smaller, agile, often mission-driven data efforts).</p>
+            </div>
+            <div class="reading-section">
+                <p><b style="color:#23395d;">Why it matters:</b> Highlights the trade-offs between scale, usability, and flexibility in data infrastructures, and shows how different models shape who can access data, how easily it can be used, and what kinds of analysis are possible.</p>
+            </div>
+        </div>
+
+        <div class="reading">
+            <h3 style="color:#23395d; font-size:1.05rem;"><b>(2) Introduction to STAC (SpatioTemporal Asset Catalog)</b> <a href="https://stacspec.org/en/tutorials/intro-to-stac/" target="_blank" style="color:#ffb347; font-weight:600;">[link]</a></h3>
+            <div class="reading-section">
+                <p><b style="color:#23395d;">What it covers:</b> A standard for organizing and accessing geospatial data in cloud-based systems.</p>
+            </div>
+            <div class="reading-section">
+                <p><b style="color:#23395d;">Why it matters:</b> Provides a foundation for working with large datasets that cannot be downloaded locally.</p>
+            </div>
+            <p style="margin: 0.8rem 0 0 0.8rem; font-style:italic; color:#3a4666;"><i>Note: Don't worry about the technical details—we'll work through this together in class.</i></p>
+        </div>
+
+        <hr>
+
+        <h2>Pick One (In-Class Exercise Preparation)</h2>
+        <p>We will work in groups on real policy problems. Please read one of the following and come prepared to discuss the data used in the study and where those data live.</p>
+
+        <div class="readings-grid">
+        <div class="reading">
+            <h3 style="color:#23395d; font-size:1.05rem;"><b>(3a) Biodiversity Monitoring for a Just Planetary Future</b> <a href="https://www.science.org/doi/10.1126/science.adh8874" target="_blank" style="color:#ffb347; font-weight:600;">[link]</a></h3>
+            <div class="reading-section">
+                <p><b style="color:#23395d;">What it covers:</b> How global biodiversity monitoring systems are built from many data sources (e.g., citizen science, institutional datasets, global repositories) and how these data reflect social and political histories.</p>
+            </div>
+            <div class="reading-section">
+                <p><b style="color:#23395d;">Why it matters:</b> Shows that biodiversity data are not neutral—data collection is uneven across regions and contexts, and these disparities can shape conservation priorities and policy decisions.</p>
+            </div>
+        </div>
+
+        <div class="reading">
+            <h3 style="color:#23395d; font-size:1.05rem;"><b>(3b) Global Air Pollution Exposure and Poverty</b> <a href="https://www.nature.com/articles/s41467-023-39797-4.pdf" target="_blank" style="color:#ffb347; font-weight:600;">[link]</a></h3>
+            <div class="reading-section">
+                <p><b style="color:#23395d;">What it covers:</b> Links between global air pollution exposure and socioeconomic inequality using large-scale environmental and demographic data.</p>
+            </div>
+            <div class="reading-section">
+                <p><b style="color:#23395d;">Why it matters:</b> A concrete example of combining multiple large datasets (e.g., satellite and census data) to produce policy-relevant insights—and the challenges of integrating data across sources.</p>
+            </div>
+        </div>
+        </div>
+
+        <hr>
+
+        <h2>What to Keep in Mind</h2>
+        <p>As you read, focus less on the results of each study and more on:</p>
+        <ul style="margin-top:0.5rem; margin-left:1rem;">
+            <li>What data are used</li>
+            <li>Where those data exist (platforms, repositories, APIs)</li>
+            <li>Whether and how you could access them yourself</li>
+        </ul>
+        <p>This perspective will form the foundation of the in-class exercises.</p>
+
+        <hr>
+
+        <h2>Note</h2>
+        <div class="note">
+            If you are unable to access any of the readings, please reach out to the instructors and we will provide a copy.
+        </div>
+    </div>
+    <footer style="margin-top:2.5rem;background:#23395d;color:#e0e6f7;padding:1rem 2rem;text-align:center;font-size:0.95rem;">
+        CAS TPP: Big Data for Public Policy | ETH Zurich | May 8, 2026
+    </footer>
+</body>
+</html>
