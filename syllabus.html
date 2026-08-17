@@ -8,13 +8,13 @@
     <style>
         body {
             font-family: 'Inter', Arial, sans-serif;
-            background: #f4f6fa;
+            background: #f3f7f1;
             margin: 0;
             padding: 0;
-            color: #222b45;
+            color: #183a2b;
         }
         .navbar {
-            background: #23395d;
+            background: #1f5a3d;
             padding: 0 2rem;
             display: flex;
             align-items: center;
@@ -39,7 +39,7 @@
             margin: 0 1rem;
         }
         .navbar a {
-            color: #e0e6f7;
+            color: #e5f0e8;
             text-decoration: none;
             font-weight: 500;
             font-size: 1rem;
@@ -47,7 +47,7 @@
         }
         .navbar a:hover,
         .navbar a.active {
-            color: #ffb347;
+            color: #b8d66a;
         }
         .main-content {
             max-width: 900px;
@@ -61,29 +61,47 @@
             font-size: 2.2rem;
             font-weight: 600;
             margin-bottom: 0.5em;
-            color: #23395d;
+            color: #1f5a3d;
         }
         .subtitle {
-            color: #4a5a7a;
+            color: #436454;
             font-size: 1.1rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.25rem;
+        }
+        .course-format {
+            margin: 0 0 2rem;
+            padding: 1rem 1.2rem;
+            background: #f4f6fa;
+            border: 1px solid #e0e6f7;
+            border-left: 4px solid #ffb347;
+            border-radius: 6px;
+            color: #4a5a7a;
+            line-height: 1.65;
+        }
+        .course-format p {
+            margin: 0;
+        }
+        .course-format p + p {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #e0e6f7;
         }
         .slot {
             display: none;
         }
         .slot h2 {
             margin: 0 0 0.55rem 0;
-            color: #23395d;
+            color: #1f5a3d;
             font-size: 1.16rem;
         }
         .slot p {
             margin: 0.3rem 0;
-            color: #3a4666;
+            color: #385246;
             line-height: 1.55;
         }
         .slot ul {
             margin: 0.45rem 0 0.3rem 1.2rem;
-            color: #23395d;
+            color: #1f5a3d;
             line-height: 1.55;
         }
         hr {
@@ -93,11 +111,80 @@
             margin-top: 1.5rem;
             padding: 1.25rem 1.4rem;
             background: #f8fafd;
-            border: 1px solid #dde3f0;
-            border-left: 4px solid #23395d;
+            border: 1px solid #cfe0d0;
+            border-left: 4px solid #1f5a3d;
             border-radius: 8px;
-            color: #3a4666;
+            color: #385246;
             line-height: 1.55;
+        }
+        .schedule-table {
+            width: 100%;
+            margin-top: 1.5rem;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        .schedule-table th, .schedule-table td {
+            padding: 0.75rem 0.7rem;
+            text-align: left;
+            vertical-align: top;
+            border-bottom: 1px solid #e0e6f7;
+            line-height: 1.45;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        .schedule-table th {
+            color: #23395d;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        .schedule-table td.date-col {
+            white-space: nowrap;
+            font-weight: 600;
+        }
+        .schedule-table td.module-col {
+            text-align: center;
+            vertical-align: middle;
+            padding-left: 0.3rem;
+            padding-right: 0.3rem;
+            background: #fff;
+            border-right: 1px solid #e0e6f7;
+        }
+        .schedule-table td.module-col.shade-a {
+            background: #eaf0fb;
+        }
+        .schedule-table td.module-col.shade-b {
+            background: #d3ddf2;
+        }
+        .schedule-table td.readings-col {
+            text-align: left;
+            color: #4a5a7a;
+            font-size: 0.88rem;
+            line-height: 1.4;
+        }
+        .schedule-table td.readings-col a {
+            color: #23395d;
+            font-weight: 600;
+        }
+        .schedule-table td.readings-col .book-icon {
+            margin-right: 0.3rem;
+        }
+        .table-footnote {
+            margin-top: 1rem;
+            color: #4a5a7a;
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
+        .schedule-table td.module-col .module-label {
+            display: inline-block;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            color: #ffb347;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            white-space: nowrap;
         }
         @media (max-width: 700px) {
             .main-content {
@@ -105,101 +192,163 @@
             }
         }
     </style>
+    <style>
+        body { background: #f7f6f2; color: #111111; }
+        .navbar { background: #2f6f4e; }
+        .navbar a { color: #ffffff; }
+        .navbar a:hover, .navbar a.active { color: #2f6b3f; }
+        h1, h2 { color: #2f6f4e !important; }
+        .subtitle { color: #5b5b5b !important; }
+        .main-content { background: #fffdf9; }
+        [style*="color:#1f5a3d"] { color: #2f6f4e !important; }
+        [style*="color:#436454"] { color: #5b5b5b !important; }
+        [style*="color:#385246"] { color: #44484a !important; }
+        [style*="background:#f3f7f1"] { background: #f7f6f2 !important; }
+        [style*="background:#e5f0e8"] { background: #ffffff !important; }
+        [style*="background:#edf5ed"] { background: #f7f6f2 !important; }
+        [style*="background:#f8fafd"] { background: #ffffff !important; }
+    </style>
+    <link href="old-dsep-theme.css" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar">
-        <a class="logo" href="index.html" aria-label="Home"></a>
+        <a class="logo" href="index.html" aria-label="Home"><strong>DSEP</strong></a>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="syllabus.html" class="active">Syllabus</a></li>
-            <li><a href="readings.html">Readings</a></li>
             <li><a href="tech.html">Tech Setup</a></li>
+            <li><a href="learning-philosophy.html">Learning Philosophy</a></li>
+            <li><a href="competencies.html">Competencies</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
 
     <div class="main-content">
         <h1>Syllabus</h1>
-        <div class="subtitle">Fall Semester &bull; ETH Zurich</div>
-        <div class="coming-soon">The full weekly course schedule and syllabus are coming soon.</div>
-
-        <div class="slot">
-            <h2>Weekly Schedule</h2>
-            <p><b>Thursdays | 08:15 - 10:00 and 18:15 - 20:00</b></p>
+        <div class="subtitle">Fall Semester &bull; ETH Zurich<br>Thursdays &bull; Sep 17&ndash;Dec 17 &bull; 08:15&ndash;10:00 and 18:15&ndash;20:00</div>
+        <div class="course-format">
+            <p>This course primarily uses a flipped-classroom format. Some class time will be used for short lectures and live coding, but most will be dedicated to collective discussion of the readings and co-working on group module projects with the professor and teaching assistants.</p>
+            <p><strong>Schedule note:</strong> The schedule may change as the course progresses because some content may warrant more time. Any updates will be posted here.</p>
         </div>
 
-        <div class="slot">
-            <h2>08:15 - 10:00 | Morning Session</h2>
-        </div>
-
-        <hr>
-
-        <div class="slot">
-            <h2>18:15 - 20:00 | Evening Session</h2>
-            <p><b>What problems do you work on? What data do you work with?</b></p>
-            <ul>
-                <li>Data infrastructures, data aggregation, data sovereignty</li>
-                <li>Where data exist: platforms, APIs, cloud catalogs</li>
-                <li>Introduction to <a href="https://stacspec.org/en/about/" target="_blank">STAC</a> — what it is and why these infrastructures matter</li>
-                <li>Data frictions: the gap between data availability and data access</li>
-            </ul>
-        </div>
-
-        <div class="slot">
-            <h2>Applied Work: Finding Data in the STAC Catalog</h2>
-            <p><b>Get into groups — start with the paper you read</b></p>
-            <ul>
-                <li>Look for the data described or needed in your paper inside a STAC catalog</li>
-                <li>What infrastructures do these data live on? How big are they?</li>
-                <li>What does it mean to access them? What frictions do you encounter?</li>
-            </ul>
-        </div>
-
-        <div class="slot">
-            <h2>Cloud-Native Computing and MCPs</h2>
-            <ul>
-                <li>Working with data you cannot (or should not) download</li>
-                <li>Cloud-native workflows: COGs, STAC queries, on-demand computation</li>
-                <li>Introduction to Model Context Protocol (MCP) for data access — see <a href="duckdb-setup.html">MCP Servers page</a></li>
-                <li>Live demo: STAC query and NDVI computation</li>
-            </ul>
-        </div>
-
-        <div class="slot">
-            <h2>Explore: MCPs and Data Structures</h2>
-            <p><b>Open exploration — doesn't have to be your group's paper topic</b></p>
-            <ul>
-                <li>Connect to an MCP server and run a query</li>
-                <li>Explore what data structures and metadata are returned</li>
-            </ul>
-        </div>
-
-        <div class="slot">
-            <h2>Projects and Deep Dives: Introduction</h2>
-            <ul>
-                <li>Groups choose a dataset and policy question to investigate</li>
-                <li>Framing: what would you actually need to answer this question?</li>
-            </ul>
-        </div>
-
-        <div class="slot">
-            <h2>Group Work: Deep Dives</h2>
-            <ul>
-                <li>Work through your chosen dataset and question</li>
-                <li>Document what you found, what was hard, and what remains uncertain</li>
-            </ul>
-        </div>
-
-        <div class="slot">
-            <h2>Report Back and Closing</h2>
-            <ul>
-                <li>Brief group reports</li>
-                <li>Closing reflection: What does it mean to do policy analysis in a world of planetary-scale, uneven, and infrastructure-dependent data?</li>
-            </ul>
-        </div>
+        <table class="schedule-table">
+            <colgroup>
+                <col style="width:1.8rem">
+                <col style="width:4rem">
+                <col style="width:40%">
+                <col>
+                <col style="width:8rem">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Date</th>
+                    <th>Morning (8:15&ndash;10a)</th>
+                    <th>Evening (6:15&ndash;8p)</th>
+                    <th>Readings</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="module-col"></td>
+                    <td class="date-col">Sep 17</td>
+                    <td>Course overview: DS for environmental policy &amp; justice; R/RStudio/Git setup, tidyverse basics</td>
+                    <td>Setup troubleshooting; explore GBF data sources; form project teams; final project overview</td>
+                    <td class="readings-col">&mdash;</td>
+                </tr>
+                <tr>
+                    <td class="module-col shade-a" rowspan="2"><span class="module-label">Module 1</span></td>
+                    <td class="date-col">Sep 24</td>
+                    <td>Intro to module 1: planetary-scale data and spatial mapping</td>
+                    <td>Coworking session: Module 1</td>
+                    <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span><a href="https://radiant.earth/blog/2025/06/internet-power/" target="_blank" rel="noopener noreferrer">Internet Power</a><br><span class="book-icon" aria-hidden="true">&#128214;</span><a href="https://doi.org/10.1126/science.adh8874" target="_blank" rel="noopener noreferrer">Chapman et al. (2024)</a><br><span class="book-icon" aria-hidden="true">&#128187;</span><a href="https://datacarpentry.github.io/organization-geospatial/01-intro-raster-data.html" target="_blank" rel="noopener noreferrer">Intro to Spatial Data</a></td>
+                </tr>
+                <tr>
+                    <td class="date-col">Oct 1</td>
+                    <td>Module 1, continued: STAC and cloud-native geospatial workflows</td>
+                    <td>Coworking session: Module 1</td>
+                    <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span><a href="https://doi.org/10.1177/25148486211043503" target="_blank" rel="noopener noreferrer">Nost &amp; Goldstein (2022)</a><br><span class="book-icon" aria-hidden="true">&#128187;</span><a href="https://stacspec.org/en" target="_blank" rel="noopener noreferrer">STAC Spec</a></td>
+                </tr>
+                <tr>
+                    <td class="module-col shade-b" rowspan="2"><span class="module-label">Module 2</span></td>
+                    <td class="date-col">Oct 8</td>
+                    <td>Intro to module 2: policy documents and public discourse as data</td>
+                    <td>Coworking session: Module 2</td>
+                    <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span><a href="https://www.nature.com/articles/s41893-024-01504-6.pdf" target="_blank" rel="noopener noreferrer">Savin et al. (2025)</a></td>
+                </tr>
+                <tr>
+                    <td class="date-col">Oct 15</td>
+                    <td>Module 2, continued: topic modeling and text classification</td>
+                    <td>Coworking session: Module 2</td>
+                    <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span><a href="https://www.research-collection.ethz.ch/server/api/core/bitstreams/4bc505c0-5dd9-4722-87b8-04631707eb6c/content" target="_blank" rel="noopener noreferrer">Jin &amp; Mihalcea (2023)</a></td>
+                </tr>
+                <tr>
+                    <td class="module-col shade-a" rowspan="2"><span class="module-label">Module 3</span></td>
+                    <td class="date-col">Oct 22</td>
+                    <td>Intro to module 3: algorithmic governance and conservation prioritization</td>
+                    <td>Coworking session: Module 3</td>
+                    <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span>TBD</td>
+                </tr>
+                <tr>
+                    <td class="date-col">Oct 29</td>
+                    <td>Module 3, continued: algorithmic ethics, objectives, and equity</td>
+                    <td>Coworking session: Module 3</td>
+                    <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span>TBD</td>
+                </tr>
+                <tr>
+                    <td class="module-col"></td>
+                    <td class="date-col">Nov 5</td>
+                    <td>CBD COP case study: summary of outcomes and the role of data in global environmental policy</td>
+                    <td>Mini-project: audit one COP outcome's targets, indicators, and data gaps, then pitch a final project to track its implementation</td>
+                    <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span>TBD</td>
+                </tr>
+                <tr>
+                    <td class="module-col shade-b" rowspan="2"><span class="module-label">Module 4</span></td>
+                    <td class="date-col">Nov 12</td>
+                    <td>Intro to module 4: causal inference for environmental policy evaluation</td>
+                    <td>Coworking session: Module 4</td>
+                    <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span>TBD</td>
+                </tr>
+                <tr>
+                    <td class="date-col">Nov 19</td>
+                    <td>Module 4, continued: equity and distributional effects</td>
+                    <td>Coworking session: Module 4</td>
+                    <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span>TBD</td>
+                </tr>
+                <tr>
+                    <td class="module-col shade-a"><span class="module-label">Module 5</span></td>
+                    <td class="date-col">Nov 26</td>
+                    <td>Module 5: the environmental costs of compute, infrastructure siting, and extraction</td>
+                    <td>Module 5 discussion</td>
+                    <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span>TBD</td>
+                </tr>
+                <tr>
+                    <td class="module-col"></td>
+                    <td class="date-col">Dec 3</td>
+                    <td>Data science for environmental policy: career chats</td>
+                    <td>Building a professional website and portfolio</td>
+                    <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span>TBD</td>
+                </tr>
+                <tr>
+                    <td class="module-col"></td>
+                    <td class="date-col">Dec 10</td>
+                    <td>Final project co-work session</td>
+                    <td>Final project co-work session</td>
+                    <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span>TBD</td>
+                </tr>
+                <tr>
+                    <td class="module-col"></td>
+                    <td class="date-col">Dec 17</td>
+                    <td>Final project presentations</td>
+                    <td>Final project presentations; course reflection</td>
+                    <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span>TBD</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="table-footnote">Module reflections for Modules 1&ndash;4 are due at the beginning of the next module. The final 30 minutes of each of those modules' second class sessions are speed presentations of each group's findings.</p>
     </div>
-    <footer style="margin-top:2.5rem;background:#23395d;color:#e0e6f7;padding:1rem 2rem;text-align:center;font-size:0.95rem;">
-        DSEP: Data Science for Environmental Policy | ETH Zurich | Fall Semester
+    <footer style="background:#23395d;color:#e0e6f7;padding:1.2rem 0;text-align:center;font-size:1rem;margin-top:2.5rem;">
+        &copy; 2026 Data Science for Environmental Policy (DSEP) &bull; ETH Zurich &bull; Contact: <a class="site-footer-link" href="mailto:mchapma@ethz.ch">mchapma@ethz.ch</a>
     </footer>
 </body>
 </html>

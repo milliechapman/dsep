@@ -6,16 +6,16 @@
     <title>DuckDB Geo MCP — Setup Guide</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', Arial, sans-serif; background: #f4f6fa; margin: 0; padding: 0; color: #222b45; }
-        .navbar { background: #23395d; padding: 0 2rem; display: flex; align-items: center; height: 60px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+        body { font-family: 'Inter', Arial, sans-serif; background: #f3f7f1; margin: 0; padding: 0; color: #183a2b; }
+        .navbar { background: #1f5a3d; padding: 0 2rem; display: flex; align-items: center; height: 60px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
         .navbar .logo { color: #fff; font-size: 1.3rem; font-weight: 600; letter-spacing: 1px; margin-right: 2rem; text-decoration: none; }
         .navbar ul { list-style: none; display: flex; margin: 0; padding: 0; }
         .navbar li { margin: 0 1rem; }
-        .navbar a { color: #e0e6f7; text-decoration: none; font-weight: 500; font-size: 1rem; transition: color 0.2s; }
-        .navbar a:hover, .navbar a.active { color: #ffb347; }
+        .navbar a { color: #e5f0e8; text-decoration: none; font-weight: 500; font-size: 1rem; transition: color 0.2s; }
+        .navbar a:hover, .navbar a.active { color: #b8d66a; }
         .main-content { max-width: 900px; margin: 2.5rem auto 0 auto; background: #fff; border-radius: 14px; box-shadow: 0 4px 24px rgba(0,0,0,0.07); padding: 2.5rem 2rem 2rem 2rem; }
-        h1 { font-size: 2.2rem; font-weight: 600; margin-bottom: 0.5em; color: #23395d; }
-        .subtitle { color: #4a5a7a; font-size: 1.1rem; margin-bottom: 2.5rem; }
+        h1 { font-size: 2.2rem; font-weight: 600; margin-bottom: 0.5em; color: #1f5a3d; }
+        .subtitle { color: #436454; font-size: 1.1rem; margin-bottom: 2.5rem; }
         @media (max-width: 700px) { .main-content { padding: 1.2rem 0.5rem; } }
 
         /* Steps */
@@ -24,19 +24,19 @@
         .step-num {
             font-family: 'IBM Plex Mono', monospace;
             font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
-            color: #23395d; border: 2px solid #23395d;
+            color: #1f5a3d; border: 2px solid #1f5a3d;
             width: 40px; height: 40px;
             display: flex; align-items: center; justify-content: center;
             margin-top: 2px; flex-shrink: 0; border-radius: 4px;
         }
-        .step-body h2 { font-size: 1.1rem; font-weight: 600; color: #23395d; margin-bottom: 0.4rem; }
-        .step-body p { color: #4a5a7a; margin-bottom: 0.75rem; font-size: 0.975rem; }
+        .step-body h2 { font-size: 1.1rem; font-weight: 600; color: #1f5a3d; margin-bottom: 0.4rem; }
+        .step-body p { color: #436454; margin-bottom: 0.75rem; font-size: 0.975rem; }
 
         /* Code blocks */
         .code-block {
-            background: #f0f3f9;
-            border: 1px solid #dde3f0;
-            border-left: 3px solid #23395d;
+            background: #eff6ef;
+            border: 1px solid #cfe0d0;
+            border-left: 3px solid #1f5a3d;
             border-radius: 6px;
             padding: 16px 20px;
             margin-bottom: 10px;
@@ -45,34 +45,34 @@
         .code-block pre {
             font-family: 'IBM Plex Mono', monospace;
             font-size: 13px; line-height: 1.7;
-            color: #222b45; white-space: pre; margin: 0;
+            color: #183a2b; white-space: pre; margin: 0;
         }
-        .token-key   { color: #1a6bbf; }
-        .token-str   { color: #b5590e; }
-        .token-punct { color: #7a869a; }
-        .token-comment { color: #8898aa; font-style: italic; }
+        .token-key   { color: #24704a; }
+        .token-str   { color: #8f5a17; }
+        .token-punct { color: #617565; }
+        .token-comment { color: #718579; font-style: italic; }
 
         /* Inline code */
         code {
             font-family: 'IBM Plex Mono', monospace;
             font-size: 0.85em;
-            background: #eef1f8;
-            border: 1px solid #dde3f0;
+            background: #edf5ed;
+            border: 1px solid #cfe0d0;
             padding: 2px 6px;
             border-radius: 4px;
-            color: #23395d;
+            color: #1f5a3d;
         }
 
         /* Keyboard shortcuts */
         kbd {
             font-family: 'IBM Plex Mono', monospace;
             font-size: 11px;
-            background: #e8ecf5;
-            border: 1px solid #c5cedf;
-            border-bottom: 2px solid #b0bcd4;
+            background: #e1eee1;
+            border: 1px solid #b8d1bc;
+            border-bottom: 2px solid #9bb7a0;
             padding: 2px 8px;
             border-radius: 3px;
-            color: #23395d;
+            color: #1f5a3d;
             white-space: nowrap;
         }
 
@@ -92,18 +92,18 @@
         .verify {
             margin-top: 2.5rem;
             background: #f8fafd;
-            border: 1px solid #dde3f0;
-            border-top: 3px solid #23395d;
+            border: 1px solid #cfe0d0;
+            border-top: 3px solid #1f5a3d;
             border-radius: 8px;
             padding: 1.75rem;
         }
-        .verify h2 { font-size: 1.1rem; font-weight: 600; color: #23395d; margin-bottom: 1rem; }
+        .verify h2 { font-size: 1.1rem; font-weight: 600; color: #1f5a3d; margin-bottom: 1rem; }
         .checks { display: flex; flex-direction: column; gap: 12px; }
-        .check { display: flex; gap: 12px; align-items: flex-start; font-size: 0.95rem; color: #4a5a7a; }
+        .check { display: flex; gap: 12px; align-items: flex-start; font-size: 0.95rem; color: #436454; }
         .check-label {
             font-family: 'IBM Plex Mono', monospace;
-            font-size: 11px; color: #23395d;
-            background: #e8ecf5; border: 1px solid #c5cedf;
+            font-size: 11px; color: #1f5a3d;
+            background: #e1eee1; border: 1px solid #b8d1bc;
             padding: 2px 8px; white-space: nowrap;
             margin-top: 2px; flex-shrink: 0; border-radius: 3px;
         }
@@ -113,40 +113,57 @@
         .queries h2 {
             font-family: 'IBM Plex Mono', monospace;
             font-size: 11px; letter-spacing: 0.15em;
-            text-transform: uppercase; color: #7a869a; margin-bottom: 1rem;
+            text-transform: uppercase; color: #617565; margin-bottom: 1rem;
         }
         .query-list { display: flex; flex-direction: column; gap: 8px; }
         .query-item {
-            background: #f0f3f9; border: 1px solid #dde3f0;
+            background: #eff6ef; border: 1px solid #cfe0d0;
             padding: 12px 16px; font-family: 'IBM Plex Mono', monospace;
-            font-size: 13px; color: #222b45; border-radius: 6px;
+            font-size: 13px; color: #183a2b; border-radius: 6px;
             transition: border-color 0.15s;
         }
-        .query-item:hover { border-color: #23395d; }
-        .query-item::before { content: '> '; color: #23395d; font-weight: 600; }
+        .query-item:hover { border-color: #1f5a3d; }
+        .query-item::before { content: '> '; color: #1f5a3d; font-weight: 600; }
 
         @media (max-width: 500px) {
             .step { grid-template-columns: 1fr; }
             .step-num { margin-bottom: 8px; }
         }
     </style>
+    <style>
+        body { background: #f7f6f2; color: #111111; }
+        .navbar { background: #2f6f4e; }
+        .navbar a { color: #ffffff; }
+        .navbar a:hover, .navbar a.active { color: #2f6b3f; }
+        h1, h2, h3 { color: #2f6f4e !important; }
+        .subtitle { color: #5b5b5b !important; }
+        .main-content { background: #fffdf9; }
+        [style*="color:#1f5a3d"] { color: #2f6f4e !important; }
+        [style*="color:#436454"] { color: #5b5b5b !important; }
+        [style*="color:#385246"] { color: #44484a !important; }
+        [style*="background:#f3f7f1"] { background: #f7f6f2 !important; }
+        [style*="background:#e5f0e8"] { background: #ffffff !important; }
+        [style*="background:#edf5ed"] { background: #f7f6f2 !important; }
+        [style*="background:#f8fafd"] { background: #ffffff !important; }
+    </style>
+    <link href="old-dsep-theme.css" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar">
-        <a class="logo" href="index.html" aria-label="Home"></a>
+        <a class="logo" href="index.html" aria-label="Home"><strong>DSEP</strong></a>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="syllabus.html">Syllabus</a></li>
-            <li><a href="readings.html">Readings</a></li>
-            <li><a href="modules.html">Modules</a></li>
             <li><a href="tech.html">Tech Setup</a></li>
+            <li><a href="learning-philosophy.html">Learning Philosophy</a></li>
+            <li><a href="competencies.html">Competencies</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
     <div class="main-content">
         <h1>Query geo data from VS Code</h1>
         <p class="subtitle">Connect the DuckDB Geo MCP server to GitHub Copilot and explore spatial datasets with plain English.</p>
-        <hr style="margin: 0 0 2rem 0; border: none; border-top: 1.5px solid #e0e6f7;">
+        <hr style="margin: 0 0 2rem 0; border: none; border-top: 1.5px solid #e5f0e8;">
 
         <div class="steps">
 
@@ -232,8 +249,8 @@ MCP: Open Workspace Configuration</pre>
         </div>
 
     </div>
-    <footer style="margin-top: 2.5rem; background: #23395d; color: #e0e6f7; padding: 1rem 2rem; text-align: center; font-size: 0.95rem;">
-        DSEP: Data Science for Environmental Policy | ETH Zurich | Fall Semester
+    <footer style="background:#23395d;color:#e0e6f7;padding:1.2rem 0;text-align:center;font-size:1rem;margin-top:2.5rem;">
+        &copy; 2026 Data Science for Environmental Policy (DSEP) &bull; ETH Zurich &bull; Contact: <a class="site-footer-link" href="mailto:mchapma@ethz.ch">mchapma@ethz.ch</a>
     </footer>
 </body>
 </html>

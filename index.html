@@ -9,13 +9,13 @@
     <style>
         body {
             font-family: 'Inter', Arial, sans-serif;
-            background: #f4f6fa;
+            background: #f3f7f1;
             margin: 0;
             padding: 0;
-            color: #222b45;
+            color: #183a2b;
         }
         .navbar {
-            background: #23395d;
+            background: #1f5a3d;
             padding: 0 2rem;
             display: flex;
             align-items: center;
@@ -40,14 +40,14 @@
             margin: 0 1rem;
         }
         .navbar a {
-            color: #e0e6f7;
+            color: #e5f0e8;
             text-decoration: none;
             font-weight: 500;
             font-size: 1rem;
             transition: color 0.2s;
         }
         .navbar a:hover, .navbar a.active {
-            color: #ffb347;
+            color: #b8d66a;
         }
         .main-content {
             max-width: 900px;
@@ -56,44 +56,50 @@
             border-radius: 14px;
             box-shadow: 0 4px 24px rgba(0,0,0,0.07);
             padding: 2.5rem 2rem 2rem 2rem;
-            background-image: radial-gradient(#e5e7ef 0.8px, transparent 1.2px);
+            background-image: radial-gradient(#d8e7d9 0.8px, transparent 1.2px);
             background-size: 16px 16px;
         }
         h1 {
             font-size: 2.2rem;
             font-weight: 600;
             margin-bottom: 0.5em;
-            color: #23395d;
+            color: #1f5a3d;
         }
         .subtitle {
-            color: #4a5a7a;
+            color: #436454;
             font-size: 1.1rem;
             margin-bottom: 2.5rem;
         }
         .modules {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 2.5rem;
+            display: flex;
+            overflow-x: auto;
+            gap: 1.2rem;
+            margin-top: 0.2rem;
+            padding: 0.2rem 0 1rem;
+            scroll-snap-type: x mandatory;
         }
         .module {
-            background: #f4f6fa;
+            background: #f7faff;
+            border: 1px solid #e0e6f7;
             border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(35,57,93,0.04);
+            box-shadow: 0 2px 8px rgba(35,57,93,0.05);
             padding: 1.5rem 1.2rem;
             transition: box-shadow 0.2s;
+            min-width: 320px;
+            max-width: 380px;
+            scroll-snap-align: start;
         }
         .module:hover {
-            box-shadow: 0 4px 16px rgba(35,57,93,0.10);
+            box-shadow: 0 4px 16px rgba(35,57,93,0.12);
         }
         .module-title {
             font-size: 1.15rem;
             font-weight: 600;
-            color: #23395d;
+            color: #1f5a3d;
             margin-bottom: 0.5rem;
         }
         .module-desc {
-            color: #4a5a7a;
+            color: #436454;
             font-size: 1rem;
         }
         @media (max-width: 700px) {
@@ -101,43 +107,71 @@
                 padding: 1.2rem 0.5rem;
             }
             .modules {
-                grid-template-columns: 1fr;
+                gap: 1rem;
             }
         }
     </style>
+    <style>
+        body { background: #f7f6f2; color: #111111; }
+        .navbar { background: #2f6f4e; }
+        .navbar a { color: #ffffff; }
+        .navbar a:hover, .navbar a.active { color: #2f6b3f; }
+        h1, h2, .module-title { color: #2f6f4e !important; }
+        .subtitle, .module-desc { color: #5b5b5b !important; }
+        .main-content { background-color: #fffdf9; background-image: radial-gradient(#d9dfd4 0.8px, transparent 1.2px); }
+        [style*="color:#1f5a3d"] { color: #2f6f4e !important; }
+        [style*="color:#436454"] { color: #5b5b5b !important; }
+        [style*="color:#385246"] { color: #44484a !important; }
+        [style*="background:#f3f7f1"] { background: #f7f6f2 !important; }
+        [style*="background:#e5f0e8"] { background: #ffffff !important; }
+        [style*="background:#edf5ed"] { background: #f7f6f2 !important; }
+        [style*="background:#f8fafd"] { background: #ffffff !important; }
+    </style>
+    <link href="old-dsep-theme.css" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar">
-        <a class="logo" href="index.html" style="padding:0;display:flex;align-items:center;"></a>
+        <a class="logo" href="index.html" style="padding:0;display:flex;align-items:center;"><strong>DSEP</strong></a>
         <ul>
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="syllabus.html">Syllabus</a></li>
-            <li><a href="readings.html">Readings</a></li>
-            <li><a href="modules.html">Modules</a></li>
             <li><a href="tech.html">Tech Setup</a></li>
+            <li><a href="learning-philosophy.html">Learning Philosophy</a></li>
+            <li><a href="competencies.html">Competencies</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
     <div class="main-content">
         <div style="display:flex;align-items:center;gap:2.5rem;margin-bottom:1.5rem;">
-            <img src="logo.png" alt="Course logo" style="height:170px;width:auto;display:block;flex-shrink:0;">
-            <div>
-                <h1 style="margin:0;font-size:2.2rem;font-weight:700;color:#23395d;">DSEP: Data Science for Environmental Policy</h1>
+            <img src="dsep.svg" alt="DSEP logo" style="height:210px;width:auto;display:block;flex-shrink:0;">
+            <div style="display:flex;flex-direction:column;">
+                <h1 style="margin:0;font-size:3rem;font-weight:700;color:#23395d;line-height:1.1;">Data Science for<br>Environmental Policy</h1>
+                <div class="subtitle" style="margin-top:0.3rem;margin-bottom:0.7rem;color:#4a5a7a;">Fall 2026 <span style="color:#ffb347">&bull;</span> ETH Zurich <span style="color:#ffb347">&bull;</span> D-USYS <span style="color:#ffb347">&bull;</span> 6 CP</div>
+                <hr style="border:none;border-top:3px solid #ffb347;width:100%;margin:0.7rem 0 0;">
             </div>
         </div>
-        <div class="subtitle">Fall Semester &bull; ETH Zurich<br>
-            <b>Thursdays &mdash; 08:15–10:00 and 18:15–20:00</b><br><br>
-            Achieving both ex ante and ex post policy analysis increasingly depends on the ability to access, interpret, and work with complex data systems. Whether designing interventions or evaluating their impacts, the relevant evidence is often distributed across large-scale, continuously updated, and unevenly accessible data infrastructures. This course focuses on that foundation: how data are found, accessed, and made usable in practice. By working directly with real-world datasets and platforms, participants develop the skills to navigate these infrastructures and to understand how data access, quality, and distribution shape the scope, rigor, and equity of impact assessment.
+        <div class="subtitle">
+            This course examines how algorithms and data infrastructures increasingly shape environmental decision making and governance. Students learn quantitative approaches for accessing and working with a diversity of real-world data types, assess environmental and social impacts of digital systems, and critically evaluate when data-driven approaches can support, or hinder, sustainable and equitable decision-making.
         </div>
-        <div style="margin-top:2.2rem;padding:1.2rem 1.3rem;background:#f4f6fa;border-radius:10px;color:#3a4666;line-height:1.55;">
-            See the full day schedule on the <a href="syllabus.html" style="color:#23395d;font-weight:600;">Syllabus</a> page.
-            Please complete <a href="readings.html" style="color:#23395d;font-weight:600;">Pre-Course Readings</a>
-            and review <a href="tech.html" style="color:#23395d;font-weight:600;">Tech Setup</a> before class.
+        <section style="margin-top:2.5rem;">
+            <h2 style="margin:0;color:#23395d;font-size:2rem;font-weight:700;letter-spacing:0.5px;">Course modules<span style="display:block;width:60px;height:4px;background:#ffb347;border-radius:2px;margin:0.5rem 0 1.2rem;"></span></h2>
+            <div class="modules" aria-label="Course module overview">
+                <article class="module"><div class="module-title"><span style="color:#ffb347;">[module 1]</span> The politics of planetary scale data</div><div class="module-desc"><b>Focus</b><br>Environmental data infrastructures, spatial monitoring, and global disparities in environmental observation.<br><br><b>Themes</b><ul><li>satellite data</li><li>biodiversity data gaps</li><li>spatial monitoring systems</li><li>who and what gets measured</li></ul></div></article>
+                <article class="module"><div class="module-title"><span style="color:#ffb347;">[module 2]</span> Policy documents and public discourse as data</div><div class="module-desc"><b>Focus</b><br>Using text analysis and computational methods to understand environmental policy commitments, narratives, and governance.<br><br><b>Themes</b><ul><li>policy documents</li><li>NBSAPs</li><li>discourse and framing</li><li>computational text analysis</li></ul></div></article>
+                <article class="module"><div class="module-title"><span style="color:#ffb347;">[module 3]</span> From data to decisions: algorithmic governance</div><div class="module-desc"><b>Focus</b><br>How environmental data are translated into decisions through planning tools, optimization, and algorithmic systems.<br><br><b>Themes</b><ul><li>spatial planning</li><li>reinforcement learning</li><li>decision-support systems</li><li>algorithmic governance</li></ul></div></article>
+                <article class="module"><div class="module-title"><span style="color:#ffb347;">[module 4]</span> From decisions to impact: introduction to causal inference for policy evaluation</div><div class="module-desc"><b>Focus</b><br>Evaluating environmental policies and interventions using causal inference and large environmental datasets.<br><br><b>Themes</b><ul><li>policy evaluation</li><li>causal inference</li><li>impact analysis</li><li>environmental justice</li></ul></div></article>
+                <article class="module"><div class="module-title"><span style="color:#ffb347;">[module 5]</span> The environmental costs of compute</div><div class="module-desc"><b>Focus</b><br>Data platforms, integrated analytical systems, and final student projects combining multiple analytical approaches.<br><br><b>Themes</b><ul><li>environmental data platforms</li><li>integrated workflows</li><li>AI-assisted analysis</li><li>final projects</li></ul></div></article>
+            </div>
+            <p style="margin:0;text-align:right;color:#ffb347;font-size:1.05rem;font-weight:600;">scroll &rarr;</p>
+        </section>
+        <div style="margin-top:2.2rem;padding:1.2rem 1.3rem;background:#f3f7f1;border-radius:10px;color:#385246;line-height:1.55;">
+            For more info, see the full <a href="syllabus.html" style="color:#1f5a3d;font-weight:600;">syllabus</a> page.
+            Please review <a href="tech.html" style="color:#1f5a3d;font-weight:600;">Tech Setup</a> before the first class.
         </div>
-        <div style="max-width:900px;margin:3rem auto 0 auto;padding:2rem 2.5rem 2rem 2.5rem;background:#f9fafc;border-radius:12px;box-shadow:0 2px 12px rgba(35,57,93,0.06);">
-            <h2 style="color:#23395d;font-size:1.3rem;font-weight:600;margin-bottom:0.7em;">Contact</h2>
+        <div style="max-width:900px;margin:3rem auto 0 auto;padding:2rem 2.5rem 2rem 2.5rem;background:#f8fbf7;border-radius:12px;box-shadow:0 2px 12px rgba(31,90,61,0.06);">
+            <h2 style="color:#1f5a3d;font-size:1.3rem;font-weight:600;margin-bottom:0.7em;">Contact</h2>
             <div style="display:flex;align-items:center;gap:2rem;flex-wrap:wrap;">
-                <img src="millie.jpg" alt="Instructor photo" style="width:110px;height:110px;border-radius:50%;object-fit:cover;box-shadow:0 2px 8px rgba(35,57,93,0.10);">
+                <img src="millie.jpg" alt="Instructor photo" style="width:110px;height:110px;border-radius:50%;object-fit:cover;box-shadow:0 2px 8px rgba(31,90,61,0.10);">
                 <div>
                     <p style="margin:0 0 0.5rem 0;">Instructor: <b>Millie Chapman</b></p>
                     <p style="margin:0 0 0.5rem 0;">Email: <a class="email" href="mailto:melissa.chapman@usys.ethz.ch">melissa.chapman@usys.ethz.ch</a></p>
@@ -147,8 +181,8 @@
             </div>
         </div>
     </div>
-    <footer style="margin-top:2.5rem;background:#23395d;color:#e0e6f7;padding:1rem 2rem;text-align:center;font-size:0.95rem;">
-        DSEP: Data Science for Environmental Policy | ETH Zurich | Fall Semester
+    <footer style="background:#23395d;color:#e0e6f7;padding:1.2rem 0;text-align:center;font-size:1rem;margin-top:2.5rem;">
+        &copy; 2026 Data Science for Environmental Policy (DSEP) &bull; ETH Zurich &bull; Contact: <a class="site-footer-link" href="mailto:mchapma@ethz.ch">mchapma@ethz.ch</a>
     </footer>
 </body>
 </html>

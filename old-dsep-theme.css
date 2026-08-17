@@ -1,0 +1,25 @@
+:root {
+    --dsep-navy: #23395d;
+    --dsep-navy-muted: #4a5a7a;
+    --dsep-pale: #f4f6fa;
+    --dsep-pale-line: #e0e6f7;
+    --dsep-orange: #ffb347;
+    --dsep-text: #222b45;
+}
+
+body { background: var(--dsep-pale) !important; color: var(--dsep-text) !important; }
+.navbar, footer { background: var(--dsep-navy) !important; }
+.navbar a { color: var(--dsep-pale-line) !important; }
+.navbar a:hover, .navbar a.active { color: var(--dsep-orange) !important; }
+.site-footer-link { color: var(--dsep-orange) !important; text-decoration: underline; }
+h1, h2, h3, .module-title, summary { color: var(--dsep-navy) !important; }
+.subtitle, .module-desc, details p, details li { color: var(--dsep-navy-muted) !important; }
+.main-content { background-color: #fff !important; background-image: radial-gradient(#e3e6f0 0.9px, transparent 1.3px) !important; background-size: 14px 14px !important; }
+a.email, .main-content a { color: var(--dsep-navy) !important; }
+details, .competency-card { background: #f7faff !important; border-color: var(--dsep-pale-line) !important; border-left-color: var(--dsep-navy) !important; }
+code { background: #eef1f8 !important; border-color: #dde3f0 !important; color: var(--dsep-navy) !important; }
+[style*="color:#1f5a3d"], [style*="color:#2f6f4e"] { color: var(--dsep-navy) !important; }
+[style*="color:#385246"], [style*="color:#44484a"] { color: #3a4666 !important; }
+[style*="background:#f3f7f1"], [style*="background:#f7f6f2"] { background: var(--dsep-pale) !important; }
+[style*="background:#f8fbf7"], [style*="background:#fffdf9"] { background: #f9fafc !important; }
+[style*="border-top:1px solid #d9dfd4"] { border-top-color: var(--dsep-pale-line) !important; }
