@@ -70,44 +70,9 @@
             font-size: 1.1rem;
             margin-bottom: 2.5rem;
         }
-        .modules {
-            display: flex;
-            overflow-x: auto;
-            gap: 1.2rem;
-            margin-top: 0.2rem;
-            padding: 0.2rem 0 1rem;
-            scroll-snap-type: x mandatory;
-        }
-        .module {
-            background: #f7faff;
-            border: 1px solid #e0e6f7;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(35,57,93,0.05);
-            padding: 1.5rem 1.2rem;
-            transition: box-shadow 0.2s;
-            min-width: 320px;
-            max-width: 380px;
-            scroll-snap-align: start;
-        }
-        .module:hover {
-            box-shadow: 0 4px 16px rgba(35,57,93,0.12);
-        }
-        .module-title {
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: #1f5a3d;
-            margin-bottom: 0.5rem;
-        }
-        .module-desc {
-            color: #436454;
-            font-size: 1rem;
-        }
         @media (max-width: 700px) {
             .main-content {
                 padding: 1.2rem 0.5rem;
-            }
-            .modules {
-                gap: 1rem;
             }
         }
     </style>
@@ -135,6 +100,7 @@
         <ul>
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="syllabus.html">Syllabus</a></li>
+            <li><a href="modules.html">Modules</a></li>
             <li><a href="tech.html">Tech Setup</a></li>
             <li><a href="learning-philosophy.html">Learning Philosophy</a></li>
             <li><a href="competencies.html">Competencies</a></li>
@@ -153,17 +119,6 @@
         <div class="subtitle">
             This course examines how algorithms and data infrastructures increasingly shape environmental decision making and governance. Students learn quantitative approaches for accessing and working with a diversity of real-world data types, assess environmental and social impacts of digital systems, and critically evaluate when data-driven approaches can support, or hinder, sustainable and equitable decision-making.
         </div>
-        <section style="margin-top:2.5rem;">
-            <h2 style="margin:0;color:#23395d;font-size:2rem;font-weight:700;letter-spacing:0.5px;">course modules<span style="display:block;width:60px;height:4px;background:#ffb347;border-radius:2px;margin:0.5rem 0 1.2rem;"></span></h2>
-            <div class="modules" aria-label="Course module overview">
-                <article class="module"><div class="module-title"><span style="color:#ffb347;">[1]</span> The politics of planetary scale data</div><div class="module-desc"><p><b>Technical goals:</b> Find, access, and analyze large spatial datasets; build reproducible, cloud-native geospatial workflows.</p><p><b>Conceptual goals:</b> Trace how biodiversity data shape biodiversity policy; interrogate data infrastructure through the lenses of history, power, and data justice.</p></div></article>
-                <article class="module"><div class="module-title"><span style="color:#ffb347;">[2]</span> The promise and perils of algorithmic environmental governance</div><div class="module-desc"><p><b>Technical goals:</b> Formulate and test simple optimization problems; compare static optimization, dynamic adaptive decision making, and reinforcement learning.</p><p><b>Conceptual goals:</b> Interrogate how objectives, constraints, and trade-offs encode values; evaluate algorithmic decisions through the lenses of ethics, transparency, and equity.</p></div></article>
-                <article class="module"><div class="module-title"><span style="color:#ffb347;">[3]</span> Policy documents and public discourse as data</div><div class="module-desc"><p><b>Technical goals:</b> Collect, clean, and explore large collections of policy text; use LLMs and computational text analysis to identify patterns across policy documents and public discourse.</p><p><b>Conceptual goals:</b> Examine how language turns environmental ambitions into policy commitments; interrogate whose priorities and perspectives become legible in official and public discourse.</p></div></article>
-                <article class="module"><div class="module-title"><span style="color:#ffb347;">[4]</span> From intervention to impact: causal inference for evaluating environmental policy</div><div class="module-desc"><p><b>Technical goals:</b> Turn causal questions into testable research designs; use difference-in-differences, event studies, and matched designs to estimate impacts.</p><p><b>Conceptual goals:</b> Interrogate the assumptions behind causal claims; compare competing identification strategies and distributional outcomes.</p></div></article>
-                <article class="module"><div class="module-title"><span style="color:#ffb347;">[5]</span> The environmental costs of compute</div><div class="module-desc"><p><b>Technical goals:</b> Identify and evaluate evidence about the energy, water, land, and material demands of digital infrastructure.</p><p><b>Conceptual goals:</b> Examine infrastructure siting, extraction, and who bears the environmental costs of the digital economy.</p></div></article>
-            </div>
-            <p style="margin:0;text-align:right;color:#ffb347;font-size:1.05rem;font-weight:600;">scroll &rarr;</p>
-        </section>
         <div style="margin-top:2.2rem;padding:1.2rem 1.3rem;background:#f3f7f1;border-radius:10px;color:#385246;line-height:1.55;">
             For more info, see the full <a href="syllabus.html" style="color:#1f5a3d;font-weight:600;">syllabus</a> page.
             Please review <a href="tech.html" style="color:#1f5a3d;font-weight:600;">Tech Setup</a> before the first class.

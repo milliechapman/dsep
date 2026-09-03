@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 320" role="img" aria-labelledby="title desc">
+  <title id="title">DSEP logo</title>
+  <desc id="desc">Data Science for Environmental Policy</desc>
+  <rect width="420" height="320" rx="28" fill="#f8fafd"/>
+  <path d="M70 217c34-7 61-28 81-63 23-40 55-59 93-59 35 0 66 17 89 48 17 23 34 37 53 43" fill="none" stroke="#23395d" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/>
+  <circle cx="70" cy="217" r="13" fill="#ffb347" stroke="#23395d" stroke-width="7"/>
+  <circle cx="151" cy="154" r="13" fill="#f8fafd" stroke="#23395d" stroke-width="7"/>
+  <circle cx="244" cy="95" r="13" fill="#f8fafd" stroke="#23395d" stroke-width="7"/>
+  <circle cx="333" cy="143" r="13" fill="#ffb347" stroke="#23395d" stroke-width="7"/>
+  <text x="210" y="257" fill="#23395d" font-family="Inter, Arial, sans-serif" font-size="58" font-weight="700" text-anchor="middle">DSEP</text>
+  <text x="210" y="286" fill="#4a5a7a" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" letter-spacing="1" text-anchor="middle">DATA SCIENCE FOR ENVIRONMENTAL POLICY</text>
+</svg>

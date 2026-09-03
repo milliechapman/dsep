@@ -7,8 +7,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>body{font-family:'Inter',Arial,sans-serif;background:#f3f7f1;margin:0;padding:0;color:#183a2b;}.navbar{background:#1f5a3d;padding:0 2rem;display:flex;align-items:center;height:60px;box-shadow:0 2px 8px rgba(0,0,0,0.04);}.navbar .logo{color:#fff;font-size:1.3rem;font-weight:600;letter-spacing:1px;margin-right:2rem;text-decoration:none;}.navbar ul{list-style:none;display:flex;margin:0;padding:0;}.navbar li{margin:0 1rem;}.navbar a{color:#e5f0e8;text-decoration:none;font-weight:500;font-size:1rem;transition:color 0.2s;}.navbar a:hover,.navbar a.active{color:#b8d66a;}.main-content{max-width:900px;margin:2.5rem auto 0 auto;background:#fff;border-radius:14px;box-shadow:0 4px 24px rgba(0,0,0,0.07);padding:2.5rem 2rem 2rem 2rem;}h1{font-size:2.2rem;font-weight:600;margin-bottom:0.5em;color:#1f5a3d;}.subtitle{color:#436454;font-size:1.1rem;margin-bottom:2.5rem;}@media (max-width:700px){.main-content{padding:1.2rem 0.5rem;}}
 
+        .course-modules { display: grid; gap: 1rem; }
+        .course-module { background: #f7faff; border: 1px solid #e0e6f7; border-left: 4px solid #23395d; border-radius: 8px; padding: 1.25rem 1.4rem; }
+        .course-module h2 { font-size: 1.15rem; margin: 0 0 0.75rem; }
+        .course-module h2 span { color: #ffb347; margin-right: 0.35rem; }
+        .course-module p { color: #4a5a7a; line-height: 1.55; margin: 0.55rem 0 0; }
+        .coming-soon { margin-top: 2rem; padding: 1.25rem 1.4rem; background: #f8fafd; border: 1px solid #cfe0d0; border-left: 4px solid #1f5a3d; border-radius: 8px; color: #385246; line-height: 1.55; }
         .module-list { display: none; }
-        .coming-soon { margin-top: 1.5rem; padding: 1.25rem 1.4rem; background: #f8fafd; border: 1px solid #cfe0d0; border-left: 4px solid #1f5a3d; border-radius: 8px; color: #385246; line-height: 1.55; }
         .module-card {
             display: flex; align-items: flex-start; gap: 1.25rem;
             background: #f8fafd; border: 1px solid #cfe0d0;
@@ -51,6 +56,7 @@
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="syllabus.html">Syllabus</a></li>
+            <li><a href="modules.html" class="active">Modules</a></li>
             <li><a href="tech.html">Tech Setup</a></li>
             <li><a href="learning-philosophy.html">Learning Philosophy</a></li>
             <li><a href="competencies.html">Competencies</a></li>
@@ -59,9 +65,16 @@
     </nav>
     <div class="main-content">
         <h1>Modules</h1>
-        <p class="subtitle">Course materials will be available here during the semester.</p>
+        <p class="subtitle">Five modules connect technical methods with critical questions about data, algorithms, and environmental governance.</p>
         <hr style="margin: 0 0 2rem 0; border: none; border-top: 1.5px solid #e5f0e8;">
-        <div class="coming-soon">Module guides, assignments, and hands-on activities are coming soon.</div>
+        <div class="course-modules" aria-label="Course module overview">
+            <article class="course-module"><h2><span>[1]</span>The politics of planetary scale data</h2><p><b>Technical goals:</b> Find, access, and analyze large spatial datasets; build reproducible, cloud-native geospatial workflows.</p><p><b>Conceptual goals:</b> Trace how biodiversity data shape biodiversity policy; interrogate data infrastructure through the lenses of history, power, and data justice.</p></article>
+            <article class="course-module"><h2><span>[2]</span>Policy documents and public discourse as data</h2><p><b>Technical goals:</b> Collect, clean, and explore large collections of policy text; use LLMs and computational text analysis to identify patterns across policy documents and public discourse.</p><p><b>Conceptual goals:</b> Examine how language turns environmental ambitions into policy commitments; interrogate whose priorities and perspectives become legible in official and public discourse.</p></article>
+            <article class="course-module"><h2><span>[3]</span>The promise and perils of algorithmic environmental governance</h2><p><b>Technical goals:</b> Formulate and test simple optimization problems; compare static optimization, dynamic adaptive decision making, and reinforcement learning.</p><p><b>Conceptual goals:</b> Interrogate how objectives, constraints, and trade-offs encode values; evaluate algorithmic decisions through the lenses of ethics, transparency, and equity.</p></article>
+            <article class="course-module"><h2><span>[4]</span>From intervention to impact: causal inference for evaluating environmental policy</h2><p><b>Technical goals:</b> Turn causal questions into testable research designs; use difference-in-differences, event studies, and matched designs to estimate impacts.</p><p><b>Conceptual goals:</b> Interrogate the assumptions behind causal claims; compare competing identification strategies and distributional outcomes.</p></article>
+            <article class="course-module"><h2><span>[5]</span>The environmental costs of compute</h2><p><b>Technical goals:</b> Identify and evaluate evidence about the energy, water, land, and material demands of digital infrastructure.</p><p><b>Conceptual goals:</b> Examine infrastructure siting, extraction, and who bears the environmental costs of the digital economy.</p></article>
+        </div>
+        <div class="coming-soon"><strong>Course materials:</strong> Module guides, assignments, and hands-on activities will be added here during the semester.</div>
 
         <div class="module-list">
             <a href="https://github.com/milliechapman/dspp-activities/blob/main/activity%201/stac-ndvi-switzerland.ipynb" target="_blank" class="module-card">
