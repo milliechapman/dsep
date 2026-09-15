@@ -90,9 +90,9 @@
             display: block;
             margin-top: 0.55rem;
             padding: 0.35rem 0.45rem;
-            background: #fff7e8;
-            border-left: 3px solid #ffb347;
-            color: #23395d;
+            background: #edf6ee;
+            border-left: 3px solid #6f9b76;
+            color: #285b35;
             font-size: 0.78rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -163,7 +163,7 @@
         }
         .session-title {
             color: #23395d;
-            font-weight: 700;
+            font-weight: 400;
         }
         .session-note {
             display: block;
@@ -175,6 +175,10 @@
         .work-session {
             color: #3a4666;
             font-weight: 600;
+        }
+        .final-project-session {
+            background: #fff7e8;
+            border-left: 4px solid #ffb347;
         }
         .schedule-table td.module-col {
             text-align: center;
@@ -198,6 +202,7 @@
         }
         .schedule-table td.readings-col a {
             color: #23395d;
+            font-size: 0.82rem;
             font-weight: 600;
         }
         .schedule-table td.readings-col .book-icon {
@@ -208,6 +213,31 @@
             color: #4a5a7a;
             font-size: 0.88rem;
             line-height: 1.5;
+        }
+        .deliverables {
+            margin-top: 2rem;
+            padding: 1.25rem 1.4rem;
+            background: #f4f6fa;
+            border: 1px solid #e0e6f7;
+            border-left: 4px solid #ffb347;
+            border-radius: 6px;
+            color: #4a5a7a;
+            line-height: 1.6;
+        }
+        .deliverables h2 {
+            margin: 0 0 0.7rem;
+            color: #23395d;
+            font-size: 1.25rem;
+        }
+        .deliverables p {
+            margin: 0 0 0.8rem;
+        }
+        .deliverables ol {
+            margin: 0;
+            padding-left: 1.4rem;
+        }
+        .deliverables li + li {
+            margin-top: 0.55rem;
         }
         .schedule-table td.module-col .module-label {
             display: inline-block;
@@ -272,7 +302,7 @@
         <h1>Syllabus</h1>
         <div class="subtitle">Fall Semester &bull; ETH Zurich<br>Thursdays &bull; Sep 17&ndash;Dec 17 &bull; 08:15&ndash;10:00 and 18:15&ndash;20:00</div>
         <div class="course-format">
-            <p>This course primarily uses a flipped-classroom format. Morning sessions pair a 45-minute methods deep-dive with 45 minutes of co-working on module projects. Evening sessions pair a 45-minute critical reflection on the readings with 45 minutes of module project co-working.</p>
+            <p>This course uses an active-classroom format built around hands-on practice, discussion, and collaboration. Most morning sessions pair a 45-minute methods deep-dive with 45 minutes of collaborative work on module projects. Most evening sessions pair a 45-minute critical reflection on the readings with 45 minutes of collaborative project work.</p>
             <p><strong>Schedule note:</strong> The schedule may change as the course progresses because some content may warrant more time. Any updates will be posted here.</p>
         </div>
 
@@ -281,9 +311,9 @@
             <colgroup>
                 <col style="width:1.8rem">
                 <col style="width:4rem">
-                <col style="width:40%">
+                <col style="width:calc(40% - 2rem)">
                 <col>
-                <col style="width:8rem">
+                <col style="width:10rem">
             </colgroup>
             <thead>
                 <tr>
@@ -298,101 +328,106 @@
                 <tr>
                     <td class="module-col"></td>
                     <td class="date-col">Sep 17</td>
-                    <td><span class="session-kicker">Course introduction</span><span class="session-title">Data, power, and environmental decision making</span><span class="session-note">Course introduction, expectations, and goals</span></td>
-                    <td class="work-session"><span class="session-kicker">Setup</span>Reproducible workflows and forming module teams</td>
+                    <td><span class="session-kicker">Course introduction &middot; 45 min</span>How data science plays a role throughout the environmental policy cycle<span class="session-kicker" style="margin-top:0.65rem;">Tech setup &middot; 45 min</span>GitHub, VS Code or Codespaces, and an introduction to coding in R</td>
+                    <td><span class="session-kicker">AI foundations &middot; 45 min</span>Comparing local and hosted LLMs<span class="session-kicker" style="margin-top:0.65rem;">Course setup &middot; 45 min</span>Reproducible workflows and forming module teams</td>
                     <td class="readings-col">&mdash;</td>
                 </tr>
                 <tr>
-                    <td class="module-col shade-a" rowspan="2"><span class="module-label">Module 1</span></td>
+                    <td class="module-col shade-a" rowspan="3"><span class="module-label">Module 1</span></td>
                     <td class="date-col">Sep 24</td>
-                    <td><span class="session-kicker">Module introduction</span><span class="session-title">The politics of planetary scale data</span></td>
-                    <td><span class="session-kicker">Critical reflection &middot; 45 min</span>Discussion of the assigned readings<span class="session-kicker" style="margin-top:0.65rem;">Module project &middot; 45 min</span>Coworking: Module 1</td>
-                    <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span><a href="https://radiant.earth/blog/2025/06/internet-power/" target="_blank" rel="noopener noreferrer">Internet Power</a><br><span class="book-icon" aria-hidden="true">&#128214;</span><a href="https://doi.org/10.1126/science.adh8874" target="_blank" rel="noopener noreferrer">Chapman et al. (2024)</a><br><span class="book-icon" aria-hidden="true">&#128187;</span><a href="https://datacarpentry.github.io/organization-geospatial/01-intro-raster-data.html" target="_blank" rel="noopener noreferrer">Intro to Spatial Data</a></td>
+                    <td><span class="session-kicker">Module introduction &middot; 45 min</span><span class="session-title">The politics of planetary scale data</span><span class="session-kicker" style="margin-top:0.65rem;">Methods deep-dive &middot; 45 min</span>Introduction to spatial data and coding through live, hands-on examples</td>
+                    <td><span class="session-kicker">Critical reflection &middot; 45 min</span><span class="session-title">A Political Ecology of Data</span><span class="session-note">How do the infrastructures, institutions, and practices that produce environmental data shape what can be known, governed, and contested?</span><span class="session-kicker" style="margin-top:0.65rem;">Module project &middot; 45 min</span>Pair programming: Module 1</td>
+                    <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span><a href="https://doi.org/10.1177/25148486211043503" target="_blank" rel="noopener noreferrer">A Political Ecology of Data (Nost &amp; Goldstein, 2022)</a><br><span class="book-icon" aria-hidden="true">&#128187;</span><a href="https://datacarpentry.github.io/organization-geospatial/01-intro-raster-data.html" target="_blank" rel="noopener noreferrer">Intro to Spatial Data</a><span class="session-kicker" style="margin-top:0.65rem;">Optional module prep:</span><a href="https://doi.org/10.1126/science.adh8874" target="_blank" rel="noopener noreferrer">Biodiversity data disparities (Chapman et al., 2024)</a></td>
                 </tr>
                 <tr>
                     <td class="date-col">Oct 1</td>
-                    <td><span class="session-kicker">Methods deep-dive &middot; 45 min</span>Cloud-native geospatial workflows, efficient data storage and access<span class="session-kicker" style="margin-top:0.65rem;">Module project &middot; 45 min</span>Coworking: Module 1</td>
-                    <td><span class="session-kicker">Critical reflection &middot; 45 min</span>Data disparities and bias<span class="session-kicker" style="margin-top:0.65rem;">Module project &middot; 45 min</span>Coworking: Module 1</td>
-                    <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span><a href="https://doi.org/10.1177/25148486211043503" target="_blank" rel="noopener noreferrer">Nost &amp; Goldstein (2022)</a><br><span class="book-icon" aria-hidden="true">&#128187;</span><a href="https://stacspec.org/en" target="_blank" rel="noopener noreferrer">STAC Spec</a></td>
+                    <td><span class="session-kicker">Methods deep-dive &middot; 45 min</span>Cloud-native geospatial workflows, efficient data storage and access<span class="session-kicker" style="margin-top:0.65rem;">Module project &middot; 45 min</span>Pair programming: Module 1</td>
+                    <td><span class="session-kicker">Critical reflection &middot; 45 min</span><span class="session-title">Internet Power</span><span class="session-note">Who gains influence, who is excluded, and what responsibilities follow when internet platforms shape access to environmental information?</span><span class="session-kicker" style="margin-top:0.65rem;">Module project &middot; 45 min</span>Pair programming: Module 1</td>
+                    <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span><a href="https://radiant.earth/blog/2025/06/internet-power/" target="_blank" rel="noopener noreferrer">Internet Power</a><br><span class="book-icon" aria-hidden="true">&#128187;</span><a href="https://stacspec.org/en" target="_blank" rel="noopener noreferrer">STAC Spec</a></td>
                 </tr>
                 <tr>
-                    <td class="module-col"></td>
                     <td class="date-col">Oct 8</td>
-                    <td><span class="session-kicker">TA-led session</span><span class="session-title">Module 1 presentations</span><span class="session-note">What was confusing? What are you struggling with?</span></td>
-                    <td class="work-session">Final project brainstorming<span class="due-date">Due date: Module 1 reflection</span></td>
-                    <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span>TBD</td>
+                    <td><span class="session-kicker">Module 1 presentations &middot; 45 min</span><span class="session-title">Module 1 findings</span><span class="session-note">Each group gives a five-minute presentation on its findings</span><span class="session-kicker" style="margin-top:0.65rem;">TA presentations &middot; 45 min</span><span class="session-title">Data science in environmental research</span><span class="session-note">Hear how the TAs use data science in their PhD research</span></td>
+                    <td class="final-project-session"><span class="session-kicker">Final project introduction</span><span class="session-title">Structured brainstorming for final projects</span><span class="session-note">Form groups and brainstorm ideas with support from the teaching staff</span></td>
+                    <td class="readings-col">&mdash;<span class="due-date">Due date: Module 1 reflection</span></td>
                 </tr>
                 <tr>
                     <td class="module-col shade-b" rowspan="2"><span class="module-label">Module 2</span></td>
                     <td class="date-col">Oct 15</td>
-                    <td><span class="session-kicker">Module introduction</span><span class="session-title">Text analysis: policy documents and public discourse as data</span></td>
-                    <td><span class="session-kicker">Critical reflection &middot; 45 min</span>Discussion of the assigned readings<span class="session-kicker" style="margin-top:0.65rem;">Module project &middot; 45 min</span>Coworking: Module 2</td>
-                    <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span>TBD</td>
+                    <td><span class="session-kicker">Module introduction</span><span class="session-title">From structured to unstructured data: policy documents and public discourse</span><span class="session-kicker" style="margin-top:0.65rem;">Critical reflection &middot; 45 min</span>Digital technology refusal in environmental movements</td>
+                    <td><span class="session-kicker">Module project</span>Peer programming: Module 2</td>
+                    <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span><a href="https://www.nature.com/articles/s41599-026-08575-0" target="_blank" rel="noopener noreferrer">Large Language Models in public policy research (Lan et al., 2026)</a></td>
                 </tr>
                 <tr>
                     <td class="date-col">Oct 22</td>
                     <td><span class="session-kicker">Guest lecture</span><span class="session-title">Climate policy discourse analysis</span><span class="session-note">Guest lecturer: Tobias Schimanski</span></td>
-                    <td class="work-session">Tutorial: climate policy discourse analysis<span class="due-date">Due date: Module 2 reflection</span></td>
+                    <td><span class="session-kicker">Guest tutorial</span><span class="session-title">Climate policy discourse analysis</span><span class="session-note">Guest lecturer: Tobias Schimanski</span></td>
                     <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span>TBD</td>
                 </tr>
                 <tr>
-                    <td class="module-col shade-a" rowspan="2"><span class="module-label">Module 3</span></td>
+                    <td class="module-col shade-a" rowspan="3"><span class="module-label">Module 3</span></td>
                     <td class="date-col">Oct 29</td>
-                    <td><span class="session-kicker">Module introduction</span><span class="session-title">The promise and perils of algorithmic environmental governance</span></td>
-                    <td><span class="session-kicker">Critical reflection &middot; 45 min</span>Power and accountability in algorithmic environmental governance<span class="session-kicker" style="margin-top:0.65rem;">Module project &middot; 45 min</span>Coworking: Module 3</td>
-                    <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span>TBD</td>
+                    <td><span class="session-kicker">Module introduction &middot; 45 min</span><span class="session-title">From data to decisions: The promise and perils of algorithmic environmental governance</span><span class="session-kicker" style="margin-top:0.65rem;">Methods deep-dive &middot; 45 min</span>Spatial optimization for land-use planning</td>
+                    <td><span class="session-kicker">Critical reflection &middot; 45 min</span>How values change algorithmic outputs<span class="session-kicker" style="margin-top:0.65rem;">Module project &middot; 45 min</span>Peer programming: Module 3</td>
+                    <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span><a href="https://www.pure.ed.ac.uk/ws/portalfiles/portal/342754370/Sandbrook_Corres_MT_edit_1678149043_16_final.pdf" target="_blank" rel="noopener noreferrer">Social considerations for the 30&times;30 conservation target (Sandbrook et al., 2023)</a><br><span class="book-icon" aria-hidden="true">&#128187;</span><a href="https://prioritizr.github.io/NCC-workshop/" target="_blank" rel="noopener noreferrer">prioritizr workshop manual (Hanson &amp; Schuster, 2023)</a><span class="due-date">Due date: Module 2 reflection</span></td>
                 </tr>
                 <tr>
                     <td class="date-col">Nov 5</td>
-                    <td><span class="session-kicker">Methods deep-dive &middot; 45 min</span>Adaptive and dynamic decision-making algorithms<span class="session-kicker" style="margin-top:0.65rem;">Module project &middot; 45 min</span>Coworking: Module 3</td>
-                    <td><span class="session-kicker">Critical reflection &middot; 45 min</span>Participatory processes in dynamic algorithmic governance<span class="session-kicker" style="margin-top:0.65rem;">Module project &middot; 45 min</span>Coworking: Module 3</td>
-                    <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span>TBD</td>
+                    <td><span class="session-kicker">Methods deep-dive &middot; 45 min</span>Adaptive and dynamic decision-making algorithms<span class="session-kicker" style="margin-top:0.65rem;">Module project &middot; 45 min</span>Peer programming: Module 3</td>
+                    <td><span class="session-kicker">Critical reflection &middot; 45 min</span>Accountability, power and participation in algorithmic environmental governance<span class="session-kicker" style="margin-top:0.65rem;">Module project &middot; 45 min</span>Peer programming: Module 3</td>
+                    <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span><a href="https://journals.sagepub.com/doi/10.1177/0309132517740220" target="_blank" rel="noopener noreferrer">Geographies of conservation II: Technology, surveillance and conservation by algorithm (Adams, 2019)</a></td>
+                </tr>
+                <tr>
+                    <td class="date-col">Nov 12</td>
+                    <td><span class="session-kicker">Module 3 presentations &middot; 45 min</span><span class="session-title">Module 3 findings</span><span class="session-note">Each group gives a five-minute presentation on its findings</span></td>
+                    <td class="final-project-session"><span class="session-kicker">Final project proposal</span><span class="session-title">Coworking and peer consultation</span><span class="session-note">Develop project ideas and exchange feedback with peers and teaching staff</span></td>
+                    <td class="readings-col">&mdash;<span class="due-date">Due date: Module 3 reflection</span></td>
                 </tr>
                 <tr>
                     <td class="module-col shade-b" rowspan="2"><span class="module-label">Module 4</span></td>
-                    <td class="date-col">Nov 12</td>
-                    <td><span class="session-kicker">Module introduction</span><span class="session-title">From intervention to impact: causal inference for evaluating environmental policy</span></td>
-                    <td class="work-session">Coworking session: Module 4<span class="due-date">Due date: Module 3 reflection</span></td>
-                    <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span>TBD</td>
-                </tr>
-                <tr>
                     <td class="date-col">Nov 19</td>
-                    <td><span class="session-kicker">Methods deep-dive &middot; 45 min</span>Difference-in-differences, event studies, and matched designs<span class="session-kicker" style="margin-top:0.65rem;">Module project &middot; 45 min</span>Coworking: Module 4</td>
-                    <td><span class="session-kicker">Critical reflection &middot; 45 min</span>Discussion of the assigned readings<span class="session-kicker" style="margin-top:0.65rem;">Module project &middot; 45 min</span>Coworking: Module 4<span class="due-date">Due date: Final project proposal</span></td>
-                    <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span>TBD</td>
+                    <td><span class="session-kicker">Module introduction &middot; 45 min</span><span class="session-title">From intervention to impact: causal inference for evaluating environmental policy</span><span class="session-kicker" style="margin-top:0.65rem;">Module project &middot; 45 min</span>Peer programming: Module 4</td>
+                    <td><span class="session-kicker">Critical discussion &middot; 45 min</span>Challenges of equitably assessing policy impact<span class="session-kicker" style="margin-top:0.65rem;">Module project &middot; 45 min</span>Peer programming: Module 4</td>
+                    <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span>TBD<span class="due-date">Due date: Final project proposal</span></td>
                 </tr>
                 <tr>
-                    <td class="module-col shade-a"><span class="module-label">Module 5</span></td>
                     <td class="date-col">Nov 26</td>
-                    <td><span class="session-kicker">Module introduction</span><span class="session-title">The environmental costs of compute</span></td>
-                    <td><span class="session-kicker">Critical reflections</span>Infrastructure siting, extraction, and environmental justice<span class="due-date">Due date: Module 4 reflection</span></td>
+                    <td><span class="session-kicker">Methods deep-dive &middot; 45 min</span>Difference-in-differences, event studies, and matched designs<span class="session-kicker" style="margin-top:0.65rem;">Module project &middot; 45 min</span>Peer programming: Module 4</td>
+                    <td><span class="session-kicker">Module project</span>Peer programming: Module 4</td>
                     <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span>TBD</td>
                 </tr>
                 <tr>
-                    <td class="module-col"></td>
+                    <td class="module-col shade-a" rowspan="3"><span class="module-label">Module 5</span></td>
                     <td class="date-col">Dec 3</td>
-                    <td><span class="session-kicker">Professional development</span>Career chats and building a professional website/portfolio</td>
-                    <td>Final project co-work session</td>
-                    <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span>TBD</td>
+                    <td><span class="session-kicker">Data-driven reflection</span><span class="session-title">The environmental costs of compute</span></td>
+                    <td class="final-project-session"><span class="session-kicker">Final project</span><span class="session-title">Coworking and consultation</span><span class="session-note">Develop your project with support from peers and teaching staff</span></td>
+                    <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span>TBD<span class="due-date">Due date: Module 4 reflection</span></td>
                 </tr>
                 <tr>
-                    <td class="module-col"></td>
                     <td class="date-col">Dec 10</td>
-                    <td>Final project co-work session</td>
-                    <td>Final project co-work session</td>
-                    <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span>TBD</td>
+                    <td class="final-project-session"><span class="session-kicker">Final project &middot; 45 min</span><span class="session-title">Coworking session</span><span class="session-kicker" style="margin-top:0.65rem;">Professional development &middot; Optional workshop &middot; 45 min</span><span class="session-title">Website design</span></td>
+                    <td class="final-project-session"><span class="session-kicker">Final project</span><span class="session-title">Coworking session</span></td>
+                    <td class="readings-col">&mdash;</td>
                 </tr>
                 <tr>
-                    <td class="module-col"></td>
                     <td class="date-col">Dec 17</td>
-                    <td>Final project presentations</td>
-                    <td>Final project presentations; course reflection<span class="due-date">Due date: Final project</span></td>
-                    <td class="readings-col"><span class="book-icon" aria-hidden="true">&#128214;</span>TBD</td>
+                    <td class="final-project-session"><span class="session-kicker">Final project</span><span class="session-title">Presentations</span></td>
+                    <td>Class reflections</td>
+                    <td class="readings-col">&mdash;<span class="due-date">Due date: Final project</span></td>
                 </tr>
             </tbody>
         </table>
         </div>
-        <p class="table-footnote">Module reflections for Modules 1&ndash;4 are due at the beginning of the next module. The final 30 minutes of each of those modules' final class sessions are speed presentations of each group's findings. Module 5 has no module project or reflection.</p>
+        <section class="deliverables" aria-labelledby="deliverables-heading">
+            <h2 id="deliverables-heading">Module deliverables and reflections</h2>
+            <p>Modules 1 and 3, as well as Module 5 (the final project), have presentation-based deliverables and short written reflections. Modules 2 and 4 have written reflections only.</p>
+            <p><strong>Expectations for reflections:</strong></p>
+            <ol>
+                <li>Share a GitHub repository with the teaching staff that demonstrates your engagement with the module content.</li>
+                <li>Choose a figure from your module output and explain how you calculated it, how you interpret it, and what limitations or considerations should inform that interpretation.</li>
+                <li>Write a short, one-paragraph reflection on one technical insight and one critical insight you gained through the module.</li>
+            </ol>
+        </section>
     </div>
     <footer style="background:#23395d;color:#e0e6f7;padding:1.2rem 0;text-align:center;font-size:1rem;margin-top:2.5rem;">
         &copy; 2026 Data Science for Environmental Policy (DSEP) &bull; ETH Zurich &bull; Contact: <a class="site-footer-link" href="mailto:mchapma@ethz.ch">mchapma@ethz.ch</a>
