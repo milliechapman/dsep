@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSEP: GitHub and RStudio Workflow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', Arial, sans-serif; background: #f3f7f1; margin: 0; padding: 0; color: #183a2b; }
+        .navbar { background: #1f5a3d; padding: 0 2rem; display: flex; align-items: center; height: 60px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+        .navbar .logo { color: #fff; font-size: 1.3rem; font-weight: 600; letter-spacing: 1px; margin-right: 2rem; text-decoration: none; }
+        .navbar ul { list-style: none; display: flex; margin: 0; padding: 0; }
+        .navbar li { margin: 0 1rem; }
+        .navbar a { color: #e5f0e8; text-decoration: none; font-weight: 500; font-size: 1rem; }
+        .navbar a:hover, .navbar a.active { color: #b8d66a; }
+        .main-content { max-width: 900px; margin: 2.5rem auto 0; background: #fff; border-radius: 14px; box-shadow: 0 4px 24px rgba(0,0,0,0.07); padding: 2.5rem 2rem 2rem; }
+        h1 { color: #1f5a3d; font-size: 2.2rem; font-weight: 600; margin: 0 0 0.5em; }
+        h2 { color: #1f5a3d; font-size: 1.25rem; margin: 0 0 0.65rem; }
+        h3 { color: #1f5a3d; font-size: 1rem; margin: 1.1rem 0 0.45rem; }
+        p, li { color: #436454; line-height: 1.65; }
+        a { color: #1f5a3d; }
+        .subtitle { color: #436454; font-size: 1.1rem; margin-bottom: 1.5rem; }
+        .route { background: #f4f6fa; border: 1px solid #e0e6f7; border-left: 4px solid #ffb347; border-radius: 6px; padding: 1rem 1.2rem; margin-bottom: 2rem; }
+        .route p { margin: 0 0 0.65rem; }
+        .route p:last-child { margin-bottom: 0; }
+        .jump-links { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+        .jump-links a { background: #fff; border: 1px solid #cbd4e5; border-radius: 4px; padding: 0.35rem 0.55rem; text-decoration: none; font-size: 0.9rem; }
+        .steps { display: flex; flex-direction: column; gap: 1.1rem; }
+        .step { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 0 1.1rem; border-bottom: 1px solid #e0e6f7; padding: 0.4rem 0 1.5rem; scroll-margin-top: 1rem; }
+        .step:last-child { border-bottom: 0; }
+        .step-num { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; font-weight: 600; color: #23395d; border: 2px solid #23395d; border-radius: 4px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
+        .step-body > :first-child { margin-top: 0; }
+        .step-body ol, .step-body ul { padding-left: 1.3rem; }
+        .skip { background: #f7faff; border: 1px solid #e0e6f7; border-radius: 5px; padding: 0.7rem 0.85rem; margin: 0 0 1rem; font-size: 0.92rem; }
+        .path { font-family: 'IBM Plex Mono', monospace; font-size: 0.9em; }
+        code { font-family: 'IBM Plex Mono', monospace; font-size: 0.87em; background: #eef1f8; border: 1px solid #dde3f0; border-radius: 4px; padding: 0.1rem 0.3rem; color: #23395d; }
+        .code-block { background: #eef1f8; border: 1px solid #dde3f0; border-left: 3px solid #23395d; border-radius: 6px; padding: 0.85rem 1rem; overflow-x: auto; }
+        .code-block pre { font-family: 'IBM Plex Mono', monospace; color: #23395d; line-height: 1.65; margin: 0; }
+        .note { background: #fff8e8; border: 1px solid #f0d697; border-radius: 6px; padding: 0.8rem 1rem; margin-top: 0.85rem; color: #5c4a24; }
+        .note summary { cursor: pointer; }
+        .checklist { background: #f7faff; border: 1px solid #e0e6f7; border-top: 3px solid #23395d; border-radius: 8px; padding: 1.4rem; margin-top: 1.2rem; }
+        .checklist ul { list-style: none; padding: 0; margin-bottom: 0; }
+        .checklist li::before { content: '\2610'; color: #23395d; margin-right: 0.65rem; }
+        @media (max-width: 700px) { .navbar { height: auto; padding: 0.75rem 1rem; align-items: flex-start; } .navbar ul { flex-wrap: wrap; gap: 0.5rem 0; } .navbar li { margin: 0 0.5rem; } .main-content { margin: 1.25rem 0.75rem 0; padding: 1.25rem; } }
+        @media (max-width: 500px) { .step { grid-template-columns: 1fr; } .step-num { margin-bottom: 0.7rem; } }
+    </style>
+    <link href="old-dsep-theme.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <a class="logo" href="index.html" aria-label="Home"><strong>DSEP</strong></a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="syllabus.html">Syllabus</a></li>
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="tech.html" class="active">Tech Setup</a></li>
+            <li><a href="learning-philosophy.html">Learning Philosophy</a></li>
+            <li><a href="competencies.html">Competencies</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <main class="main-content">
+        <h1>From GitHub to RStudio</h1>
+        <p class="subtitle">Set up the coding introduction repository on your computer, then practice the complete edit, commit, and push workflow.</p>
+
+        <div class="route">
+            <p><strong>Start where you are.</strong> You may skip Steps 1 and 2 if you have already completed them. Complete Steps 3&ndash;8 in order, and keep this page open while you work.</p>
+            <div class="jump-links" aria-label="Jump to a setup step">
+                <a href="#account">GitHub account</a>
+                <a href="#software">Install software</a>
+                <a href="#organization">Join organization</a>
+                <a href="#template">Use template</a>
+                <a href="#rename">Name repository</a>
+                <a href="#collaborators">Add collaborators</a>
+                <a href="#rstudio">Open in RStudio</a>
+                <a href="#workflow">Commit and push</a>
+            </div>
+        </div>
+
+        <div class="steps">
+            <section class="step" id="account">
+                <div class="step-num">01</div>
+                <div class="step-body">
+                    <h2>Create a GitHub account</h2>
+                    <p class="skip"><strong>Already have an account?</strong> Sign in at <a href="https://github.com/login" target="_blank" rel="noopener noreferrer">github.com</a>, confirm that you know your username, and <a href="#software">skip to Step 2</a>.</p>
+                    <ol>
+                        <li>Go to <a href="https://github.com/signup" target="_blank" rel="noopener noreferrer">GitHub Sign Up</a>.</li>
+                        <li>Use an email address you check regularly and choose a professional username. Your username will be visible in repository links and contribution history.</li>
+                        <li>Verify your email address and sign in.</li>
+                        <li>Optional: apply for the <a href="https://education.github.com/pack" target="_blank" rel="noopener noreferrer">GitHub Student Developer Pack</a> with your ETH email. Approval is not required to continue this exercise.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section class="step" id="software">
+                <div class="step-num">02</div>
+                <div class="step-body">
+                    <h2>Install R, RStudio, Git, and GitHub CLI</h2>
+                    <p class="skip"><strong>Already installed all four?</strong> Open RStudio once to confirm it starts, then <a href="#organization">skip to Step 3</a>.</p>
+                    <p>Install these in this order. R is the language, RStudio is the application where you will work, Git records and shares changes, and GitHub CLI provides an easier browser sign-in.</p>
+                    <ol>
+                        <li>Install <a href="https://cran.r-project.org/" target="_blank" rel="noopener noreferrer">R</a> for your operating system.</li>
+                        <li>Install the free version of <a href="https://posit.co/download/rstudio-desktop/" target="_blank" rel="noopener noreferrer">RStudio Desktop</a>.</li>
+                        <li>Install <a href="https://git-scm.com/downloads" target="_blank" rel="noopener noreferrer">Git</a>. On macOS, opening Terminal and running <code>git --version</code> may prompt you to install the required command-line tools.</li>
+                        <li>Install <a href="https://cli.github.com/" target="_blank" rel="noopener noreferrer">GitHub CLI</a>.</li>
+                        <li>Restart RStudio after Git and GitHub CLI are installed.</li>
+                    </ol>
+                    <h3>Confirm that RStudio can find Git</h3>
+                    <p>In RStudio, open <strong>Tools &gt; Global Options &gt; Git/SVN</strong>. Confirm that <strong>Enable version control interface for RStudio projects</strong> is selected and that a Git executable is listed. If it is blank, browse to your Git executable and restart RStudio.</p>
+                    <h3>Set the name and email attached to your commits</h3>
+                    <p>In RStudio, open <strong>Tools &gt; Terminal &gt; New Terminal</strong>, then run the following commands with your own details. Use an email connected to your GitHub account.</p>
+                    <div class="code-block"><pre>git config --global user.name "Your Name"
+git config --global user.email "you@example.com"</pre></div>
+                </div>
+            </section>
+
+            <section class="step" id="organization">
+                <div class="step-num">03</div>
+                <div class="step-body">
+                    <h2>Join the course GitHub organization</h2>
+                    <ol>
+                        <li>Open the organization invitation link provided by the course team. Make sure you are signed in to the GitHub account you intend to use for class.</li>
+                        <li>Select <strong>Join</strong> or <strong>Accept invitation</strong>.</li>
+                        <li>Open the course organization page. You should now be able to view its repositories.</li>
+                    </ol>
+                    <div class="note"><strong>Cannot find or accept the invitation?</strong> Check that you are signed in with the correct account, look for the invitation in your email and at <a href="https://github.com/settings/organizations" target="_blank" rel="noopener noreferrer">GitHub organization settings</a>, then contact the course team if it has expired.</div>
+                </div>
+            </section>
+
+            <section class="step" id="template">
+                <div class="step-num">04</div>
+                <div class="step-body">
+                    <h2>Find and use the coding introduction template</h2>
+                    <ol>
+                        <li>On the course organization page, select the <strong>Repositories</strong> tab.</li>
+                        <li>Search the repositories for <strong>coding intro</strong> and open the coding introduction template.</li>
+                        <li>At the top right of the repository page, select the green <strong>Use this template</strong> button, then select <strong>Create a new repository</strong>.</li>
+                    </ol>
+                    <div class="note">If you see <strong>Fork</strong> but not <strong>Use this template</strong>, you are probably viewing the wrong repository. Return to the organization and locate the repository marked <strong>Public template</strong> or <strong>Template</strong>.</div>
+                </div>
+            </section>
+
+            <section class="step" id="rename">
+                <div class="step-num">05</div>
+                <div class="step-body">
+                    <h2>Name and create your repository</h2>
+                    <ol>
+                        <li>For <strong>Owner</strong>, choose the location specified by the course team.</li>
+                        <li>Name the repository using <code>reponame-LastName1</code>. Replace <code>reponame</code> with the template repository name and <code>LastName1</code> with your surname, for example <code>coding-intro-Chapman</code>.</li>
+                        <li>Keep the visibility required by the course team. Do not add a README, <code>.gitignore</code>, or license because the template already contains the starter files.</li>
+                        <li>Select <strong>Create repository</strong> and wait for your new repository page to open.</li>
+                    </ol>
+                    <p>Confirm that the page shows your new repository name and the template files before continuing.</p>
+                </div>
+            </section>
+
+            <section class="step" id="collaborators">
+                <div class="step-num">06</div>
+                <div class="step-body">
+                    <h2>Add the teaching staff as collaborators</h2>
+                    <p>Adding the teaching staff lets them view your repository, help troubleshoot your code, and provide feedback.</p>
+                    <ol>
+                        <li>Open your new repository on GitHub and select the <strong>Settings</strong> tab.</li>
+                        <li>In the left sidebar, under <strong>Access</strong>, select <strong>Collaborators</strong> or <strong>Collaborators and teams</strong>.</li>
+                        <li>Select <strong>Add people</strong>, search for <a href="https://github.com/milliechapman" target="_blank" rel="noopener noreferrer"><code>milliechapman</code></a>, select the matching account, and confirm the invitation.</li>
+                        <li>Repeat the process for <a href="https://github.com/jorygriffith" target="_blank" rel="noopener noreferrer"><code>jorygriffith</code></a> and <a href="https://github.com/PerryChicken1" target="_blank" rel="noopener noreferrer"><code>PerryChicken1</code></a>.</li>
+                        <li>If GitHub asks you to choose a role, select <strong>Write</strong>. Do not give collaborators administrator access.</li>
+                    </ol>
+                    <div class="note">GitHub may show an invitation as <strong>Pending</strong> until that person accepts it. If a staff member already has access through the course organization, GitHub may not require another invitation.</div>
+                </div>
+            </section>
+
+            <section class="step" id="rstudio">
+                <div class="step-num">07</div>
+                <div class="step-body">
+                    <h2>Set up the project in local RStudio</h2>
+                    <h3>Sign in to GitHub once</h3>
+                    <p>In RStudio, open <strong>Tools &gt; Terminal &gt; New Terminal</strong> and run these commands one at a time:</p>
+                    <div class="code-block"><pre>gh auth login --web --git-protocol https
+gh auth setup-git
+gh auth status</pre></div>
+                    <ol>
+                        <li>The first command displays a one-time code and opens GitHub in your browser. Sign in to the correct account, enter the code if asked, and approve access.</li>
+                        <li>Return to the RStudio Terminal. Run the second command to connect Git to your GitHub CLI login.</li>
+                        <li>Run the third command. Continue when it says you are logged in to <code>github.com</code>.</li>
+                    </ol>
+                    <p>You normally do this only once on each computer. The saved login works with every repository that your GitHub account is allowed to access; you do not need a token for each repository.</p>
+                    <h3>Clone your repository</h3>
+                    <ol>
+                        <li>On your repository page in GitHub, select the green <strong>Code</strong> button.</li>
+                        <li>Select <strong>HTTPS</strong>, then copy the repository URL. It should end in <code>.git</code>.</li>
+                        <li>Open RStudio and select <strong>File &gt; New Project &gt; Version Control &gt; Git</strong>.</li>
+                        <li>Paste the URL into <strong>Repository URL</strong>. RStudio should fill in the project directory name automatically.</li>
+                        <li>For <strong>Create project as a subdirectory of</strong>, choose a folder where you keep coursework, such as <span class="path">Documents/DSEP</span>. Choose a location you can find again; avoid placing the project inside another Git repository.</li>
+                        <li>Select <strong>Create Project</strong>. RStudio will download, or <em>clone</em>, the repository and open the local project.</li>
+                    </ol>
+                    <h3>Check the result</h3>
+                    <ul>
+                        <li>The project name appears at the top right of RStudio.</li>
+                        <li>The <strong>Files</strong> pane shows the template files.</li>
+                        <li>A <strong>Git</strong> tab appears next to Environment and History.</li>
+                    </ul>
+                    <div class="note">
+                        <details>
+                            <summary><strong>Fallback: create a token only if GitHub CLI sign-in does not work</strong></summary>
+                            <p>GitHub account passwords do not work for Git operations over HTTPS. If you must use a personal access token:</p>
+                            <ol>
+                                <li>Open GitHub’s <a href="https://github.com/settings/personal-access-tokens/new?name=DSEP-RStudio&amp;description=Push%20coursework%20from%20RStudio&amp;contents=write" target="_blank" rel="noopener noreferrer">fine-grained token form</a>.</li>
+                                <li>Name it <code>DSEP RStudio</code> and choose an expiration date after the course ends.</li>
+                                <li>For <strong>Resource owner</strong>, choose the account or course organization where your course repositories will live.</li>
+                                <li>Under <strong>Repository access</strong>, choose <strong>All repositories</strong> if the course will create several repositories under that owner. If that owner also contains unrelated repositories, choose <strong>Only select repositories</strong> and add each new course repository to this same token.</li>
+                                <li>Under <strong>Repository permissions</strong>, give <strong>Contents</strong> read and write access. Generate the token and copy it immediately; GitHub shows it only once.</li>
+                                <li>In the RStudio <strong>Console</strong>, run the commands below. Paste the token only when <code>gitcreds</code> prompts for it.</li>
+                            </ol>
+                            <div class="code-block"><pre>install.packages("gitcreds")
+gitcreds::gitcreds_set()</pre></div>
+                            <p><strong>Keep the token private.</strong> Never put it in an R script, README, repository URL, assignment, email, or chat message.</p>
+                            <p>If GitHub marks the token <strong>pending</strong> or asks you to authorize it for single sign-on, complete that authorization or contact the course team.</p>
+                        </details>
+                    </div>
+                </div>
+            </section>
+
+            <section class="step" id="workflow">
+                <div class="step-num">08</div>
+                <div class="step-body">
+                    <h2>Make a change, add, commit, and push</h2>
+                    <p>This is the workflow you will repeat throughout the course. A <strong>commit</strong> records a named checkpoint on your computer; a <strong>push</strong> sends your local commits to GitHub.</p>
+                    <ol>
+                        <li>In RStudio’s <strong>Files</strong> pane, open <code>README.md</code>. Add your name below the existing heading, then save the file.</li>
+                        <li>Open the <strong>Git</strong> pane. The changed file should appear with an <strong>M</strong> for modified.</li>
+                        <li>Select the checkbox beside <code>README.md</code>. This <em>adds</em>, or stages, the file for the next commit.</li>
+                        <li>Select <strong>Commit</strong>. Review the displayed change, enter a short message such as <code>Add my name to README</code>, then select <strong>Commit</strong>.</li>
+                        <li>Close the commit window, then select the green upward arrow labeled <strong>Push</strong>. Complete GitHub sign-in if prompted.</li>
+                        <li>Return to the repository page in your browser and refresh it. Open <code>README.md</code> and confirm that your change appears.</li>
+                    </ol>
+                    <h3>Terminal equivalent</h3>
+                    <p>The RStudio buttons run the same Git commands shown below. You do not need to run these now, but you may use them if you prefer the terminal.</p>
+                    <div class="code-block"><pre>git status
+git add README.md
+git commit -m "Add my name to README"
+git push</pre></div>
+                    <h3>If the push does not work</h3>
+                    <ul>
+                        <li><strong>Authentication failed:</strong> run <code>gh auth status</code> in the RStudio Terminal. If you are not logged in, run <code>gh auth login --web --git-protocol https</code> and <code>gh auth setup-git</code> again.</li>
+                        <li><strong>403</strong> or <strong>permission denied:</strong> confirm that you signed in to the account that joined the course organization and that the organization has authorized your access.</li>
+                        <li><strong>Repository not found:</strong> confirm that you accepted the organization invitation, cloned your own repository, and copied the correct HTTPS URL.</li>
+                        <li><strong>Push rejected because the remote contains work:</strong> select the blue downward arrow to pull, resolve any conflicts, and push again.</li>
+                    </ul>
+                    <div class="note">Ask the course team before using force push. If you used the token fallback and an incorrect token is stored, run <code>gitcreds::gitcreds_delete()</code>, then <code>gitcreds::gitcreds_set()</code> and enter the replacement token.</div>
+                </div>
+            </section>
+        </div>
+
+        <section class="checklist">
+            <h2>Finished when...</h2>
+            <ul>
+                <li>You can open the course organization on GitHub.</li>
+                <li>Your correctly named repository contains the coding introduction template.</li>
+                <li>The three teaching staff accounts have access to your repository.</li>
+                <li>The project opens locally in RStudio and has a Git pane.</li>
+                <li>Your README commit appears on GitHub.</li>
+            </ul>
+        </section>
+    </main>
+    <footer style="background:#23395d;color:#e0e6f7;padding:1.2rem 0;text-align:center;font-size:1rem;margin-top:2.5rem;">
+        &copy; 2026 Data Science for Environmental Policy (DSEP) &bull; ETH Zurich &bull; Contact: <a class="site-footer-link" href="mailto:mchapma@ethz.ch">mchapma@ethz.ch</a>
+    </footer>
+</body>
+</html>
